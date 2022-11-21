@@ -16,6 +16,7 @@
 		9CAE3DE0292BCADA00DEC457 /* DepartmentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAE3DDF292BCADA00DEC457 /* DepartmentModel.swift */; };
 		9CAE3DE3292BCC1B00DEC457 /* APIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAE3DE2292BCC1A00DEC457 /* APIProvider.swift */; };
 		9CAE3DE5292BCD9900DEC457 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAE3DE4292BCD9900DEC457 /* NetworkMonitor.swift */; };
+		9CAE3DEB292BD0AE00DEC457 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAE3DEA292BD0AE00DEC457 /* BaseView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		9CAE3DDF292BCADA00DEC457 /* DepartmentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentModel.swift; sourceTree = "<group>"; };
 		9CAE3DE2292BCC1A00DEC457 /* APIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIProvider.swift; sourceTree = "<group>"; };
 		9CAE3DE4292BCD9900DEC457 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		9CAE3DEA292BD0AE00DEC457 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 		9CAE3DDB292BC7EF00DEC457 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				9CAE3DE9292BD0A500DEC457 /* Supporting */,
 				9CAE3DDC292BC9F000DEC457 /* DataModel */,
 				9CAE3DD1292BC42000DEC457 /* LaunchScreen.storyboard */,
 				9CAE3DCA292BC41F00DEC457 /* ViewController.swift */,
@@ -106,6 +109,14 @@
 				9CAE3DE4292BCD9900DEC457 /* NetworkMonitor.swift */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		9CAE3DE9292BD0A500DEC457 /* Supporting */ = {
+			isa = PBXGroup;
+			children = (
+				9CAE3DEA292BD0AE00DEC457 /* BaseView.swift */,
+			);
+			path = Supporting;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -185,6 +196,7 @@
 				9CAE3DDE292BCA0B00DEC457 /* EmployeeModel.swift in Sources */,
 				9CAE3DE0292BCADA00DEC457 /* DepartmentModel.swift in Sources */,
 				9CAE3DE5292BCD9900DEC457 /* NetworkMonitor.swift in Sources */,
+				9CAE3DEB292BD0AE00DEC457 /* BaseView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
