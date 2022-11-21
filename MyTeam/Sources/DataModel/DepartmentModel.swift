@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum DepartmentModel: String, Decodable {
+enum DepartmentModel: String, Codable {
      case design
      case analytics
      case management

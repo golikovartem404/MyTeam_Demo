@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct EmployeeModel: Decodable {
+struct EmployeeModel: Codable {
     let id: String
     let avatarURL: String?
     let firstName: String
@@ -25,6 +25,6 @@ struct EmployeeModel: Decodable {
     let phone: String
 }
 
-struct EmployeeList: Decodable {
+struct EmployeeList: Codable {
     let items: [EmployeeModel]
 }
