@@ -17,6 +17,8 @@
 		9CAE3DE3292BCC1B00DEC457 /* APIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAE3DE2292BCC1A00DEC457 /* APIProvider.swift */; };
 		9CAE3DE5292BCD9900DEC457 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAE3DE4292BCD9900DEC457 /* NetworkMonitor.swift */; };
 		9CAE3DEB292BD0AE00DEC457 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAE3DEA292BD0AE00DEC457 /* BaseView.swift */; };
+		9CAE3DED292BD0EB00DEC457 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAE3DEC292BD0EB00DEC457 /* BaseViewController.swift */; };
+		9CAE3DEF292BD14100DEC457 /* ImageResizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAE3DEE292BD14100DEC457 /* ImageResizer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		9CAE3DE2292BCC1A00DEC457 /* APIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIProvider.swift; sourceTree = "<group>"; };
 		9CAE3DE4292BCD9900DEC457 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		9CAE3DEA292BD0AE00DEC457 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		9CAE3DEC292BD0EB00DEC457 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		9CAE3DEE292BD14100DEC457 /* ImageResizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageResizer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +119,8 @@
 			isa = PBXGroup;
 			children = (
 				9CAE3DEA292BD0AE00DEC457 /* BaseView.swift */,
+				9CAE3DEC292BD0EB00DEC457 /* BaseViewController.swift */,
+				9CAE3DEE292BD14100DEC457 /* ImageResizer.swift */,
 			);
 			path = Supporting;
 			sourceTree = "<group>";
@@ -191,9 +197,11 @@
 			files = (
 				9CAE3DCB292BC41F00DEC457 /* ViewController.swift in Sources */,
 				9CAE3DC7292BC41F00DEC457 /* AppDelegate.swift in Sources */,
+				9CAE3DEF292BD14100DEC457 /* ImageResizer.swift in Sources */,
 				9CAE3DC9292BC41F00DEC457 /* SceneDelegate.swift in Sources */,
 				9CAE3DE3292BCC1B00DEC457 /* APIProvider.swift in Sources */,
 				9CAE3DDE292BCA0B00DEC457 /* EmployeeModel.swift in Sources */,
+				9CAE3DED292BD0EB00DEC457 /* BaseViewController.swift in Sources */,
 				9CAE3DE0292BCADA00DEC457 /* DepartmentModel.swift in Sources */,
 				9CAE3DE5292BCD9900DEC457 /* NetworkMonitor.swift in Sources */,
 				9CAE3DEB292BD0AE00DEC457 /* BaseView.swift in Sources */,
