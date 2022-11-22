@@ -9,7 +9,7 @@ import UIKit
 
  class BaseViewController<T: UIView>: UIViewController {
 
-     var mainView: T {
+     var selfView: T {
          view as! T
      }
 

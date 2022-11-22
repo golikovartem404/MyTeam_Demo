@@ -7,192 +7,260 @@
 
 import UIKit
 
-class EmployeeTableViewCell: UITableViewCell {
+final class UserTableViewCell: UITableViewCell {
+
+    // MARK: - Constants
+
+    private enum Constants {
+
+        enum Image {
+            static let leading: CGFloat = 10
+            static let proportions: CGFloat = 72
+            static let cornerRadius = CGFloat(72 / 2)
+            static let frame = CGRect(x: 0, y: 0, width: 72, height: 72)
+        }
+
+        enum Name {
+            static let font = Resources.Fonts.interMedium(with: 16)
+            static let leading: CGFloat = 16
+            static let centerY: CGFloat = -12
+            static let width: CGFloat = 144
+            static let height: CGFloat = 16
+            static let cornerRadius: CGFloat = 8
+            static let frame = CGRect(x: 0, y: 0, width: 144, height: 16)
+        }
+
+        enum Department {
+            static let font = Resources.Fonts.interRegular(with: 13)
+            static let centerY: CGFloat = 20
+            static let width: CGFloat = 80
+            static let height: CGFloat = 12
+            static let cornerRadius: CGFloat = 6
+            static let frame = CGRect(x: 0, y: 0, width: 80, height: 12)
+        }
+
+        enum Tag {
+            static let font = Resources.Fonts.interMedium(with: 14)
+            static let leading: CGFloat = 4
+        }
+
+        enum Birthday {
+            static let font = Resources.Fonts.interRegular(with: 15)
+            static let centerY: CGFloat = -12
+            static let trailing: CGFloat = -19.5
+        }
+    }
 
     // MARK: - Properties
 
-    static let identifier = "EmployeeTableViewCell"
-    var shouldShowBirthday = false
+    static let identifier = "tableCell"
 
-    // MARK: - Outlets
+    // MARK: - Views
 
+    let avatarImageView = UserTableViewCell.makeAvatarImageView()
+    let nameLabel = UserTableViewCell.makeNameLable()
+    let departmentLabel = UserTableViewCell.makeDepartmentLabel()
+    let birthdayLabel = UserTableViewCell.makeBirthdayLabel()
 
-    let birthdayLabel: UILabel = {
-        let view = UILabel()
-        view.numberOfLines = 0
-        view.textColor = UIColor(red: 0.333, green: 0.333, blue: 0.361, alpha: 1)
-        view.font = UIFont(name: "Inter-regular", size: 15)
-        view.isHidden = true
-        return view
-    }()
+    private let tagLabel = UserTableViewCell.makeTagLabel()
 
-    private lazy var employeeImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.clipsToBounds = true
-        imageView.layer.borderWidth = 0
-        return imageView
-    }()
+    // MARK: - SkeletonView
 
-    private lazy var nameLabel: UILabel = {
-        let label = UILabel()
-        label.numberOfLines = 0
-        label.textColor = UIColor(red: 0.02, green: 0.02, blue: 0.063, alpha: 1)
-        label.font = UIFont(name: "Inter-Medium", size: 16)
-        return label
-    }()
+    private let avatarSkeletonView = UserTableViewCell.makeAvatarSkeletonView()
+    private let nameSkeletonView = UserTableViewCell.makeNameSkeletonView()
+    private let departmentSkeletonView = UserTableViewCell.makeDepartmentSkeletonView()
 
-    private lazy var tagLabel: UILabel = {
-        let label = UILabel()
-        label.numberOfLines = 0
-        label.textColor = UIColor(red: 0.591, green: 0.591, blue: 0.609, alpha: 1)
-        label.font = UIFont(name: "Inter-Medium", size: 14)
-        return label
-    }()
-
-    private lazy var departmentLabel: UILabel = {
-        let label = UILabel()
-        label.numberOfLines = 0
-        label.textColor = UIColor(red: 0.333, green: 0.333, blue: 0.361, alpha: 1)
-        label.font = UIFont(name: "Inter-Regular", size: 13)
-        return label
-    }()
-
-    // MARK: - Loading views
-
-    private lazy var nameLoadingView: UIView = {
-        let view = UIView()
-        view.frame = CGRect(x: 0, y: 0, width: 144, height: 16)
-        view.layer.cornerRadius = 8
-        view.backgroundColor = UIColor(red: 0.955, green: 0.955, blue: 0.965, alpha: 1)
-        return view
-    }()
-
-    private lazy var departmentLoadingView: UIView = {
-        let view = UIView()
-        view.frame = CGRect(x: 0, y: 0, width: 80, height: 12)
-        view.layer.cornerRadius = 6
-        view.backgroundColor = UIColor(red: 0.955, green: 0.955, blue: 0.965, alpha: 1)
-        return view
-    }()
-
-    private lazy var imageLoadingView: UIView = {
-        let view = UIView()
-        view.frame = CGRect(x: 0, y: 0, width: 72, height: 72)
-        view.layer.cornerRadius = 36
-        view.backgroundColor = UIColor(red: 0.955, green: 0.955, blue: 0.965, alpha: 1)
-        return view
-    }()
-
-    // MARK: - Lifecycle
+    // MARK: - Initialization
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.backgroundColor = .white
-        setupHierarchy()
-        setupLayout()
-        setLoadingViewsConstraints()
+
+        setViewPosition()
+        setSkeletonViewPosition()
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+}
 
-    // MARK: - Setups
+// MARK: - Set Views
 
-    private func setupHierarchy() {
-        addSubview(employeeImageView)
-        addSubview(nameLabel)
-        addSubview(tagLabel)
-        addSubview(departmentLabel)
-        addSubview(imageLoadingView)
-        addSubview(nameLoadingView)
-        addSubview(departmentLoadingView)
-        addSubview(birthdayLabel)
+extension UserTableViewCell {
+
+    func setBirthdayLabelVisibility(shouldShowBirthday: Bool) {
+        birthdayLabel.isHidden = !shouldShowBirthday
     }
 
-    private func setupLayout() {
-        employeeImageView.snp.makeConstraints { make in
-            make.centerY.equalTo(self.snp.centerY)
-            make.leading.equalTo(self.snp.leading).offset(10)
-            make.width.height.equalTo(72)
-        }
+    func setSkeletonView(show: Bool) {
+        avatarSkeletonView.isHidden = !show
+        nameSkeletonView.isHidden = !show
+        departmentSkeletonView.isHidden = !show
+    }
+}
 
-        nameLabel.snp.makeConstraints { make in
-            make.leading.equalTo(employeeImageView.snp.trailing).offset(16)
-            make.centerY.equalTo(employeeImageView.snp.centerY).offset(-20)
-        }
+// MARK: - Set Data
 
-        tagLabel.snp.makeConstraints { make in
-            make.leading.equalTo(nameLabel.snp.trailing).offset(4)
-            make.centerY.equalTo(nameLabel.snp.centerY)
-        }
+extension UserTableViewCell {
 
-        departmentLabel.snp.makeConstraints { make in
-            make.leading.equalTo(nameLabel.snp.leading)
-            make.centerY.equalTo(nameLabel.snp.centerY).offset(20)
-        }
+    func setImage(urlString: String) {
+        avatarImageView.loadImage(from: urlString)
     }
 
-    private func setLoadingViewsConstraints() {
-
-        imageLoadingView.snp.makeConstraints { make in
-            make.centerY.equalTo(self.snp.centerY)
-            make.leading.equalTo(self.snp.leading).offset(10)
-            make.width.height.equalTo(72)
-        }
-
-        nameLoadingView.snp.makeConstraints { make in
-            make.leading.equalTo(imageLoadingView.snp.trailing).offset(16)
-            make.centerY.equalTo(imageLoadingView.snp.centerY).offset(-20)
-            make.width.equalTo(144)
-            make.height.equalTo(16)
-        }
-
-        departmentLoadingView.snp.makeConstraints { make in
-            make.leading.equalTo(nameLoadingView.snp.leading)
-            make.centerY.equalTo(nameLoadingView.snp.centerY).offset(20)
-            make.width.equalTo(80)
-            make.height.equalTo(12)
-        }
-
-        birthdayLabel.snp.makeConstraints { make in
-            make.centerY.equalTo(employeeImageView.snp.centerY).offset(-12)
-            make.trailing.equalTo(self.snp.trailing).offset(-19.5)
-        }
-    }
-
-    func setLoadingView() {
-        nameLabel.isHidden = true
-        employeeImageView.isHidden = true
-        departmentLabel.isHidden = true
-        tagLabel.isHidden = true
-        departmentLabel.isHidden = true
-        imageLoadingView.isHidden = false
-        nameLoadingView.isHidden = false
-        departmentLoadingView.isHidden = false
-    }
-    
-    func setViewWithData() {
-        nameLabel.isHidden = false
-        employeeImageView.isHidden = false
-        departmentLabel.isHidden = false
-        tagLabel.isHidden = false
-        departmentLabel.isHidden = false
-
-        imageLoadingView.isHidden = true
-        nameLoadingView.isHidden = true
-        departmentLoadingView.isHidden = true
-    }
-
-    func setData(firstName: String, lastName: String, tag: String, department: DepartmentModel?, dateBirth: String) {
-        employeeImageView.image = UIImage(named: "goose")
+    func setData(firstName: String, lastName: String, tag: String, department: Department?, dateBirth: String) {
+        avatarImageView.image = Resources.Images.stopper
         nameLabel.text = "\(firstName) \(lastName)"
         tagLabel.text = tag
         departmentLabel.text = department?.title
         birthdayLabel.text = dateBirth
     }
+}
 
-    func setBirthdayLabelVisibility(shouldShowBirthday: Bool) {
-        birthdayLabel.isHidden = !shouldShowBirthday
+// MARK: - Created SubViews
+
+private extension UserTableViewCell {
+
+    static func makeAvatarImageView() -> UIImageView {
+        let avatarImageView = UIImageView()
+
+        avatarImageView.clipsToBounds = true
+        avatarImageView.layer.cornerRadius = Constants.Image.cornerRadius
+
+        return avatarImageView
+    }
+
+    static func makeNameLable() -> UILabel {
+        let nameLabel = UILabel()
+
+        nameLabel.textColor = Resources.Colors.Text.active
+        nameLabel.font = Constants.Name.font
+
+        return nameLabel
+    }
+
+    static func makeDepartmentLabel() -> UILabel {
+        let departmentLabel = UILabel()
+
+        departmentLabel.textColor = Resources.Colors.Text.secondary
+        departmentLabel.font = Constants.Department.font
+
+        return departmentLabel
+    }
+
+    static func makeTagLabel() -> UILabel {
+        let tagLabel = UILabel()
+
+        tagLabel.textColor = Resources.Colors.Text.inActive
+        tagLabel.font = Constants.Tag.font
+
+        return tagLabel
+    }
+
+    static func makeBirthdayLabel() -> UILabel {
+        let birthdayLabel = UILabel()
+
+        birthdayLabel.textColor = Resources.Colors.Text.secondary
+        birthdayLabel.font = Constants.Birthday.font
+        birthdayLabel.isHidden = true
+
+        return birthdayLabel
+    }
+}
+
+// MARK: - Setting View
+
+private extension UserTableViewCell {
+
+    func setViewPosition() {
+        [avatarImageView, nameLabel, tagLabel, departmentLabel, birthdayLabel].forEach { addView($0) }
+
+        NSLayoutConstraint.activate([
+            avatarImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
+            avatarImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Constants.Image.leading),
+            avatarImageView.heightAnchor.constraint(equalToConstant: Constants.Image.proportions),
+            avatarImageView.widthAnchor.constraint(equalToConstant: Constants.Image.proportions),
+
+            nameLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor,
+                                               constant: Constants.Name.leading),
+            nameLabel.centerYAnchor.constraint(equalTo: avatarImageView.centerYAnchor,
+                                               constant: Constants.Name.centerY),
+
+            tagLabel.leadingAnchor.constraint(equalTo: nameLabel.trailingAnchor, constant: Constants.Tag.leading),
+            tagLabel.centerYAnchor.constraint(equalTo: nameLabel.centerYAnchor),
+
+            departmentLabel.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor),
+            departmentLabel.centerYAnchor.constraint(equalTo: nameLabel.centerYAnchor,
+                                                     constant: Constants.Department.centerY),
+
+            birthdayLabel.centerYAnchor.constraint(equalTo: avatarImageView.centerYAnchor,
+                                                   constant: Constants.Birthday.centerY),
+            birthdayLabel.trailingAnchor.constraint(equalTo: trailingAnchor,
+                                                    constant: Constants.Birthday.trailing)
+        ])
+    }
+}
+
+// MARK: - Created Skeleton SubViews
+
+private extension UserTableViewCell {
+
+    static func makeAvatarSkeletonView() -> UIView {
+        let avatarSkeletonView = UIImageView()
+
+        avatarSkeletonView.frame = Constants.Image.frame
+        avatarSkeletonView.layer.cornerRadius = Constants.Image.cornerRadius
+        avatarSkeletonView.backgroundColor = Resources.Colors.skeleton
+
+        return avatarSkeletonView
+    }
+
+    static func makeNameSkeletonView() -> UIView {
+        let nameSkeletonView = UIView()
+
+        nameSkeletonView.frame = Constants.Name.frame
+        nameSkeletonView.layer.cornerRadius = Constants.Name.cornerRadius
+        nameSkeletonView.backgroundColor = Resources.Colors.skeleton
+
+        return nameSkeletonView
+    }
+
+    static func makeDepartmentSkeletonView() -> UIView {
+        let departmentSkeletonView = UIView()
+
+        departmentSkeletonView.frame = Constants.Department.frame
+        departmentSkeletonView.layer.cornerRadius = Constants.Department.cornerRadius
+        departmentSkeletonView.backgroundColor = Resources.Colors.skeleton
+
+        return departmentSkeletonView
+    }
+}
+
+// MARK: - Setting SkeletonView
+
+private extension UserTableViewCell {
+
+    func setSkeletonViewPosition() {
+        [avatarSkeletonView, nameSkeletonView, departmentSkeletonView].forEach { addView($0) }
+
+        NSLayoutConstraint.activate([
+            avatarSkeletonView.centerYAnchor.constraint(equalTo: centerYAnchor),
+            avatarSkeletonView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Constants.Image.leading),
+            avatarSkeletonView.heightAnchor.constraint(equalToConstant: Constants.Image.proportions),
+            avatarSkeletonView.widthAnchor.constraint(equalToConstant: Constants.Image.proportions),
+
+            nameSkeletonView.leadingAnchor.constraint(equalTo: avatarSkeletonView.trailingAnchor,
+                                                      constant: Constants.Name.leading),
+            nameSkeletonView.centerYAnchor.constraint(equalTo: avatarSkeletonView.centerYAnchor,
+                                                      constant: Constants.Name.centerY),
+            nameSkeletonView.widthAnchor.constraint(equalToConstant: Constants.Name.width),
+            nameSkeletonView.heightAnchor.constraint(equalToConstant: Constants.Name.height),
+
+            departmentSkeletonView.leadingAnchor.constraint(equalTo: nameSkeletonView.leadingAnchor),
+            departmentSkeletonView.centerYAnchor.constraint(equalTo: nameSkeletonView.centerYAnchor,
+                                                            constant: Constants.Department.centerY),
+            departmentSkeletonView.widthAnchor.constraint(equalToConstant: Constants.Department.width),
+            departmentSkeletonView.heightAnchor.constraint(equalToConstant: Constants.Department.height)
+        ])
     }
 }

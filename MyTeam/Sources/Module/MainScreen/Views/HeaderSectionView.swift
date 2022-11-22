@@ -7,65 +7,76 @@
 
 import UIKit
 
-class HeaderSectionView: BaseView {
+final class HeaderSectionView: BaseView {
 
-    // MARK: - Outlets
+    // MARK: - Constants
 
-    private let yearLabel: UILabel = {
-        let view = UILabel()
-        view.font = UIFont(name: "Inter-SemiBold", size: 15)
-        view.text = "2023"
-        view.textColor = UIColor(red: 0.765, green: 0.765, blue: 0.776, alpha: 1)
-        view.contentMode = .scaleAspectFit
-        view.textAlignment = .center
-        return view
-    }()
+    private enum Constants {
 
-    private let rightLine: UIView = {
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 1))
-        view.backgroundColor = UIColor(red: 0.765, green: 0.765, blue: 0.776, alpha: 1)
-        return view
-    }()
+        enum Label {
+            static let text = "\(Calendar(identifier: .gregorian).dateComponents([.year], from: Date()).year! + 1)"
+            static let font = Resources.Fonts.interMedium(with: 15)
+            static let centerY: CGFloat = -15
+        }
 
-    private let leftLine: UIView = {
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 1))
-        view.backgroundColor = UIColor(red: 0.765, green: 0.765, blue: 0.776, alpha: 1)
-        return view
-    }()
-
-    // MARK: - Setups
-
-    override func setup() {
-        setupHierarchy()
-        setupLayout()
+        enum Line {
+            static let leading: CGFloat = 24
+            static let trailing: CGFloat = -24
+            static let height: CGFloat = 1
+            static let width: CGFloat = 72
+        }
     }
 
-    private func setupHierarchy() {
-        addSubview(yearLabel)
-        addSubview(rightLine)
-        addSubview(leftLine)
+    // MARK: - Views
+
+    private let backgroundView = UIView()
+    private let yearLabel = HeaderSectionView.makeYearLabel()
+    private let rightLine = HeaderSectionView.makeLine()
+    private let leftLine = HeaderSectionView.makeLine()
+
+    // MARK: - Setting View
+
+    override func setViewPosition() {
+        [yearLabel, rightLine, leftLine].forEach { addView($0) }
+
+        NSLayoutConstraint.activate([
+            yearLabel.centerYAnchor.constraint(equalTo: centerYAnchor, constant: Constants.Label.centerY),
+            yearLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+
+            leftLine.centerYAnchor.constraint(equalTo: yearLabel.centerYAnchor),
+            leftLine.trailingAnchor.constraint(equalTo: yearLabel.leadingAnchor),
+            leftLine.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Constants.Line.leading),
+            leftLine.heightAnchor.constraint(equalToConstant: Constants.Line.height),
+            leftLine.widthAnchor.constraint(equalToConstant: Constants.Line.width),
+
+            rightLine.centerYAnchor.constraint(equalTo: yearLabel.centerYAnchor),
+            rightLine.trailingAnchor.constraint(equalTo: trailingAnchor, constant: Constants.Line.trailing),
+            rightLine.leadingAnchor.constraint(equalTo: yearLabel.trailingAnchor),
+            rightLine.heightAnchor.constraint(equalToConstant: Constants.Line.height),
+            rightLine.widthAnchor.constraint(equalToConstant: Constants.Line.width)
+        ])
+    }
+}
+
+// MARK: - Create SubViews
+
+private extension HeaderSectionView {
+
+    static func makeYearLabel() -> UILabel {
+        let yearLabel = UILabel()
+
+        yearLabel.text = Constants.Label.text
+        yearLabel.font = Constants.Label.font
+        yearLabel.textColor = Resources.Colors.separator
+        yearLabel.contentMode = .scaleAspectFit
+        yearLabel.textAlignment = .center
+
+        return yearLabel
     }
 
-    private func setupLayout() {
-        yearLabel.snp.makeConstraints { make in
-            make.centerY.equalTo(self.snp.centerY).offset(-15)
-            make.centerX.equalTo(self.snp.centerX)
-        }
-
-        leftLine.snp.makeConstraints { make in
-            make.centerY.equalTo(yearLabel.snp.centerY)
-            make.trailing.equalTo(yearLabel.snp.leading)
-            make.leading.equalTo(self.snp.leading).offset(24)
-            make.height.equalTo(1)
-            make.width.equalTo(72)
-        }
-
-        rightLine.snp.makeConstraints { make in
-            make.centerY.equalTo(yearLabel.snp.centerY)
-            make.trailing.equalTo(self.snp.trailing).offset(-24)
-            make.leading.equalTo(yearLabel.snp.trailing)
-            make.height.equalTo(1)
-            make.width.equalTo(72)
-        }
+    static func makeLine() -> UIView {
+        let line = UIView()
+        line.backgroundColor = Resources.Colors.separator
+        return line
     }
 }

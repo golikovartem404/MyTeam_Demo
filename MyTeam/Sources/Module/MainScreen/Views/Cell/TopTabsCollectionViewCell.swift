@@ -8,88 +8,104 @@
 import UIKit
 import SnapKit
 
-class TopTabsCollectionViewCell: UICollectionViewCell {
+final class TopTabsCollectionViewCell: UICollectionViewCell {
 
-    //MARK: - Properties
+    // MARK: - Constants
 
-    private(set) var model: DepartmentModel?
-    static let identifier = "TopTabsCollectionViewCell"
+    private enum Constants {
 
-    //MARK: - Outlets
+        static let borderHeight: CGFloat = 2
 
-    private lazy var label: UILabel = {
-        let label = UILabel()
-        label.font = UIFont(name: "Inter-Medium", size: 15)
-        return label
-    }()
+        enum Text {
+            static let font = Resources.Fonts.interMedium(with: 15)
+            static let selectedFont = Resources.Fonts.interSemiBold(with: 15)
+        }
 
-    private lazy var bottomBorderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 2))
+        enum Content {
+            static let height: CGFloat = 36
+            static let width: CGFloat = -16
+            static let leading: CGFloat = 16
+        }
+    }
 
-    //MARK: - Lifecycle
+    // MARK: - Properties
+
+    static let identifier = "Cell"
+
+    private(set) var model: Department?
+
+    // MARK: - Views
+
+    private let bottomBorderView = UIView()
+    private let label = UILabel()
+
+    // MARK: - Initialization
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setupView()
-        setupHierarchy()
-        setupLayout()
+
+        setBorderAppearance()
+        layoutSubviews()
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    //MARK: - Setups
-
-    private func setupView() {
-        label.textColor = .black
-        bottomBorderView.backgroundColor = #colorLiteral(red: 0.4257887602, green: 0.1908605397, blue: 1, alpha: 1)
-        bottomBorderView.isHidden = false
-    }
-
-    private func setupHierarchy() {
-        contentView.addSubview(label)
-        contentView.addSubview(bottomBorderView)
-        layoutSubviews()
-    }
-
-    private func setupLayout() {
-        self.snp.makeConstraints { make in
-            make.height.equalTo(36)
-            make.leading.equalTo(self.snp.leading).offset(16)
-            make.trailing.equalTo(self.snp.trailing)
-            make.width.equalTo(self.snp.width).offset(-16)
-        }
-    }
-    
     override func layoutSubviews() {
-        label.snp.makeConstraints { make in
-            make.leading.equalTo(self.snp.leading)
-            make.trailing.equalTo(self.snp.trailing)
-            make.centerY.equalTo(self.snp.centerY)
-            make.height.equalTo(self.snp.height)
+        [label, bottomBorderView].forEach { contentView.addSubview($0) }
+        [contentView, label, bottomBorderView].forEach {
+            $0.translatesAutoresizingMaskIntoConstraints = false
         }
 
-        bottomBorderView.snp.makeConstraints { make in
-            make.bottom.equalTo(self.snp.bottom)
-            make.leading.equalTo(label.snp.leading)
-            make.trailing.equalTo(label.snp.trailing)
-            make.height.equalTo(2)
-        }
+        NSLayoutConstraint.activate([
+            contentView.heightAnchor.constraint(equalToConstant: Constants.Content.height),
+            contentView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Constants.Content.leading),
+            contentView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            contentView.widthAnchor.constraint(equalTo: widthAnchor, constant: Constants.Content.width),
+
+            label.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            label.centerYAnchor.constraint(equalTo: centerYAnchor),
+            label.heightAnchor.constraint(equalTo: contentView.heightAnchor),
+            label.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+
+            bottomBorderView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            bottomBorderView.leadingAnchor.constraint(equalTo: label.leadingAnchor),
+            bottomBorderView.trailingAnchor.constraint(equalTo: label.trailingAnchor),
+            bottomBorderView.heightAnchor.constraint(equalToConstant: Constants.borderHeight)
+        ])
     }
+}
+
+// MARK: - Public Methods
+
+extension TopTabsCollectionViewCell {
 
     func setCellSelected(_ isSelected: Bool) {
         if isSelected {
             bottomBorderView.isHidden = false
-            label.textColor = UIColor(red: 0.02, green: 0.02, blue: 0.063, alpha: 1)
+            label.textColor = Resources.Colors.Text.active
+            label.font = Constants.Text.font
         } else {
             bottomBorderView.isHidden = true
-            label.textColor = UIColor(red: 0.591, green: 0.591, blue: 0.609, alpha: 1)
+            label.textColor = Resources.Colors.Text.inActive
+            label.font = Constants.Text.selectedFont
         }
     }
 
-    func setModel(_ department: DepartmentModel) {
+    func setModel(_ department: Department) {
         self.model = department
         label.text = department.title
-        label.textColor = UIColor(red: 0.591, green: 0.591, blue: 0.609, alpha: 1)
+        label.textColor = Resources.Colors.Text.inActive
+    }
+}
+
+// MARK: - Private Methods
+
+private extension TopTabsCollectionViewCell {
+
+    func setBorderAppearance() {
+        bottomBorderView.backgroundColor = Resources.Colors.violet
+        bottomBorderView.isHidden = false
     }
 }

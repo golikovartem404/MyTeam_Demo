@@ -55,38 +55,38 @@ enum Resources {
 
     enum Fonts {
         static func interMedium(with size: CGFloat) -> UIFont {
-            UIFont(name: "Inter-Medium", size: size) ?? UIFont()
+            UIFont.systemFont(ofSize: size, weight: .medium)
         }
 
         static func interRegular(with size: CGFloat) -> UIFont {
-            UIFont(name: "Inter-Regular", size: size) ?? UIFont()
+            UIFont.systemFont(ofSize: size, weight: .regular)
         }
 
         static func interSemiBold(with size: CGFloat) -> UIFont {
-            UIFont(name: "Inter-SemiBold", size: size) ?? UIFont()
+            UIFont.systemFont(ofSize: size, weight: .semibold)
         }
 
         static func interBold(with size: CGFloat) -> UIFont {
-            UIFont(name: "Inter-Bold", size: size) ?? UIFont()
+            UIFont.systemFont(ofSize: size, weight: .bold)
         }
     }
 
     enum Strings {
 
         enum Department: String {
-            case all = "allTab.title"
-            case android = "androidTab.title"
-            case ios = "iosTab.title"
-            case design = "designTab.title"
-            case management = "managementTab.title"
-            case qa = "qaTab.title"
-            case backOffice = "backOfficeTab.title"
-            case frontend = "frontendTab.title"
-            case hr = "hrTab.title"
-            case pr = "prTab.title"
-            case backend = "backendTab.title"
-            case support = "supportTab.title"
-            case analytics = "analyticsTab.title"
+            case all = "All"
+            case android = "Android"
+            case ios = "IOS"
+            case design = "Design"
+            case management = "Management"
+            case qa = "QA"
+            case backOffice = "Back Office"
+            case frontend = "Frontend"
+            case hr = "HR"
+            case pr = "PR"
+            case backend = "Backend"
+            case support = "Support"
+            case analytics = "Analytics"
 
             var localizedString: String {
                 NSLocalizedString(self.rawValue, comment: "")
@@ -95,7 +95,7 @@ enum Resources {
 
         enum SearchBar: String {
             case placeholder = "placeholderSearchBar.title"
-            case cancel = "cancelSearchBar.title"
+            case cancel = "Cancel"
 
             var localizedString: String {
                 NSLocalizedString(self.rawValue, comment: "")
@@ -103,9 +103,9 @@ enum Resources {
         }
 
         enum Sort: String {
-            case title = "sort.title"
-            case sortByAlphabet = "sortByAlphabet.text"
-            case sortByBirthday = "sortByBirthday.text"
+            case title = "Sorting"
+            case sortByAlphabet = "By alphabet"
+            case sortByBirthday = "By birthday"
 
             var localizedString: String {
                 NSLocalizedString(self.rawValue, comment: "")
