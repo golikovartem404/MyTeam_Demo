@@ -12,8 +12,19 @@ class EmployeeTableViewCell: UITableViewCell {
     // MARK: - Properties
 
     static let identifier = "EmployeeTableViewCell"
+    var shouldShowBirthday = false
 
     // MARK: - Outlets
+
+
+    let birthdayLabel: UILabel = {
+        let view = UILabel()
+        view.numberOfLines = 0
+        view.textColor = UIColor(red: 0.333, green: 0.333, blue: 0.361, alpha: 1)
+        view.font = UIFont(name: "Inter-regular", size: 15)
+        view.isHidden = true
+        return view
+    }()
 
     private lazy var employeeImageView: UIImageView = {
         let imageView = UIImageView()
@@ -96,6 +107,7 @@ class EmployeeTableViewCell: UITableViewCell {
         addSubview(imageLoadingView)
         addSubview(nameLoadingView)
         addSubview(departmentLoadingView)
+        addSubview(birthdayLabel)
     }
 
     private func setupLayout() {
@@ -142,6 +154,11 @@ class EmployeeTableViewCell: UITableViewCell {
             make.width.equalTo(80)
             make.height.equalTo(12)
         }
+
+        birthdayLabel.snp.makeConstraints { make in
+            make.centerY.equalTo(employeeImageView.snp.centerY).offset(-12)
+            make.trailing.equalTo(self.snp.trailing).offset(-19.5)
+        }
     }
 
     func setLoadingView() {
@@ -150,7 +167,6 @@ class EmployeeTableViewCell: UITableViewCell {
         departmentLabel.isHidden = true
         tagLabel.isHidden = true
         departmentLabel.isHidden = true
-
         imageLoadingView.isHidden = false
         nameLoadingView.isHidden = false
         departmentLoadingView.isHidden = false
@@ -173,5 +189,10 @@ class EmployeeTableViewCell: UITableViewCell {
         nameLabel.text = "\(firstName) \(lastName)"
         tagLabel.text = tag
         departmentLabel.text = department?.title
+        birthdayLabel.text = dateBirth
+    }
+
+    func setBirthdayLabelVisibility(shouldShowBirthday: Bool) {
+        birthdayLabel.isHidden = !shouldShowBirthday
     }
 }
