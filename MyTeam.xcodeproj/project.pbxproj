@@ -20,6 +20,8 @@
 		9C0F1D92292D2FA8001A0B64 /* MainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0F1D91292D2FA8001A0B64 /* MainModel.swift */; };
 		9C0F1D98292D3056001A0B64 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0F1D97292D3056001A0B64 /* ProfileModel.swift */; };
 		9C0F1D9A292D307A001A0B64 /* BackBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0F1D99292D307A001A0B64 /* BackBarButtonItem.swift */; };
+		9C0F1DA2292D320B001A0B64 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0F1DA1292D320B001A0B64 /* Resources.swift */; };
+		9C0F1DA4292D324E001A0B64 /* UIColor + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0F1DA3292D324E001A0B64 /* UIColor + Ext.swift */; };
 		9C160D5F292CFF990084E6EC /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C160D5E292CFF990084E6EC /* DetailsViewController.swift */; };
 		9C2227A2292BFB3200B7EABE /* EmployeeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2227A1292BFB3200B7EABE /* EmployeeTableViewCell.swift */; };
 		9C2227A4292BFECB00B7EABE /* NotFoundSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2227A3292BFECB00B7EABE /* NotFoundSearchView.swift */; };
@@ -57,6 +59,8 @@
 		9C0F1D91292D2FA8001A0B64 /* MainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModel.swift; sourceTree = "<group>"; };
 		9C0F1D97292D3056001A0B64 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 		9C0F1D99292D307A001A0B64 /* BackBarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackBarButtonItem.swift; sourceTree = "<group>"; };
+		9C0F1DA1292D320B001A0B64 /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
+		9C0F1DA3292D324E001A0B64 /* UIColor + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Ext.swift"; sourceTree = "<group>"; };
 		9C160D5E292CFF990084E6EC /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		9C2227A1292BFB3200B7EABE /* EmployeeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeTableViewCell.swift; sourceTree = "<group>"; };
 		9C2227A3292BFECB00B7EABE /* NotFoundSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotFoundSearchView.swift; sourceTree = "<group>"; };
@@ -214,6 +218,8 @@
 		9C0F1D9C292D30A1001A0B64 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				9C0F1DA0292D31D2001A0B64 /* Foundation */,
+				9C0F1D9F292D31CF001A0B64 /* UIKit */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -234,6 +240,21 @@
 				9CAE3DEC292BD0EB00DEC457 /* BaseViewController.swift */,
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		9C0F1D9F292D31CF001A0B64 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				9C0F1DA3292D324E001A0B64 /* UIColor + Ext.swift */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		9C0F1DA0292D31D2001A0B64 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Foundation;
 			sourceTree = "<group>";
 		};
 		9C160D5D292CFF8C0084E6EC /* Controllers */ = {
@@ -293,6 +314,7 @@
 		9CAE3DDA292BC7E400DEC457 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9C0F1DA1292D320B001A0B64 /* Resources.swift */,
 				9CAE3DD1292BC42000DEC457 /* LaunchScreen.storyboard */,
 				9CAE3DD4292BC42000DEC457 /* Info.plist */,
 				9CAE3DCF292BC42000DEC457 /* Assets.xcassets */,
@@ -455,6 +477,7 @@
 				9C2227A8292C028200B7EABE /* EmployeeListRootView.swift in Sources */,
 				9C0F1D9A292D307A001A0B64 /* BackBarButtonItem.swift in Sources */,
 				9C0F1D73292D1E87001A0B64 /* SortingView.swift in Sources */,
+				9C0F1DA2292D320B001A0B64 /* Resources.swift in Sources */,
 				9C0F1D83292D2ECA001A0B64 /* Department.swift in Sources */,
 				9CAE3DCB292BC41F00DEC457 /* EmployeesViewController.swift in Sources */,
 				9C2227A4292BFECB00B7EABE /* NotFoundSearchView.swift in Sources */,
@@ -480,6 +503,7 @@
 				9C2227A2292BFB3200B7EABE /* EmployeeTableViewCell.swift in Sources */,
 				9CAE3DEB292BD0AE00DEC457 /* BaseView.swift in Sources */,
 				9C160D5F292CFF990084E6EC /* DetailsViewController.swift in Sources */,
+				9C0F1DA4292D324E001A0B64 /* UIColor + Ext.swift in Sources */,
 				9C0F1D77292D2476001A0B64 /* HeaderSectionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
