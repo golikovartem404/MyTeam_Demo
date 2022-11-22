@@ -30,6 +30,8 @@
 		9C0F1DB2292D37E2001A0B64 /* NetworkErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0F1DB1292D37E2001A0B64 /* NetworkErrorView.swift */; };
 		9C0F1DB5292D3C37001A0B64 /* SearchErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0F1DB4292D3C37001A0B64 /* SearchErrorView.swift */; };
 		9C0F1DB8292D3C73001A0B64 /* InternalErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0F1DB7292D3C73001A0B64 /* InternalErrorView.swift */; };
+		9C0F1DBA292D3D3F001A0B64 /* GrayCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0F1DB9292D3D3F001A0B64 /* GrayCircleView.swift */; };
+		9C0F1DBC292D3D62001A0B64 /* SpinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0F1DBB292D3D62001A0B64 /* SpinnerView.swift */; };
 		9C2227A2292BFB3200B7EABE /* EmployeeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2227A1292BFB3200B7EABE /* EmployeeTableViewCell.swift */; };
 		9C2227A4292BFECB00B7EABE /* NotFoundSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2227A3292BFECB00B7EABE /* NotFoundSearchView.swift */; };
 		9C2227A6292C005600B7EABE /* LostConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2227A5292C005600B7EABE /* LostConnectionView.swift */; };
@@ -74,6 +76,8 @@
 		9C0F1DB1292D37E2001A0B64 /* NetworkErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrorView.swift; sourceTree = "<group>"; };
 		9C0F1DB4292D3C37001A0B64 /* SearchErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchErrorView.swift; sourceTree = "<group>"; };
 		9C0F1DB7292D3C73001A0B64 /* InternalErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternalErrorView.swift; sourceTree = "<group>"; };
+		9C0F1DB9292D3D3F001A0B64 /* GrayCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrayCircleView.swift; sourceTree = "<group>"; };
+		9C0F1DBB292D3D62001A0B64 /* SpinnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerView.swift; sourceTree = "<group>"; };
 		9C2227A1292BFB3200B7EABE /* EmployeeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeTableViewCell.swift; sourceTree = "<group>"; };
 		9C2227A3292BFECB00B7EABE /* NotFoundSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotFoundSearchView.swift; sourceTree = "<group>"; };
 		9C2227A5292C005600B7EABE /* LostConnectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LostConnectionView.swift; sourceTree = "<group>"; };
@@ -200,6 +204,8 @@
 		9C0F1D94292D2FF3001A0B64 /* RefreshControl */ = {
 			isa = PBXGroup;
 			children = (
+				9C0F1DB9292D3D3F001A0B64 /* GrayCircleView.swift */,
+				9C0F1DBB292D3D62001A0B64 /* SpinnerView.swift */,
 			);
 			path = RefreshControl;
 			sourceTree = "<group>";
@@ -485,6 +491,7 @@
 				9C0F1D9A292D307A001A0B64 /* BackBarButtonItem.swift in Sources */,
 				9C0F1DA2292D320B001A0B64 /* Resources.swift in Sources */,
 				9C0F1DAE292D3723001A0B64 /* ProfileViewController.swift in Sources */,
+				9C0F1DBC292D3D62001A0B64 /* SpinnerView.swift in Sources */,
 				9C0F1D83292D2ECA001A0B64 /* Department.swift in Sources */,
 				9CAE3DCB292BC41F00DEC457 /* EmployeesViewController.swift in Sources */,
 				9C2227A4292BFECB00B7EABE /* NotFoundSearchView.swift in Sources */,
@@ -494,6 +501,7 @@
 				9C0F1DB8292D3C73001A0B64 /* InternalErrorView.swift in Sources */,
 				9C0F1DB5292D3C37001A0B64 /* SearchErrorView.swift in Sources */,
 				9C0F1DA8292D3618001A0B64 /* MainViewController.swift in Sources */,
+				9C0F1DBA292D3D3F001A0B64 /* GrayCircleView.swift in Sources */,
 				9C0F1DB0292D37AF001A0B64 /* PresentNetworkError.swift in Sources */,
 				9C2227A6292C005600B7EABE /* LostConnectionView.swift in Sources */,
 				9C0F1D7E292D2E66001A0B64 /* UserModel.swift in Sources */,
