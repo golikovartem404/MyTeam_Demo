@@ -16,7 +16,7 @@ final class SearchBar: UISearchBar {
         static let cornerRadius: CGFloat = 16
         static let adjustingTextOffset: UIOffset = .init(horizontal: 10, vertical: .zero)
         static let adjustingRightIconOffset: UIOffset = .init(horizontal: -10, vertical: .zero)
-        static let leftView = UIImageView(image: R.Images.SearchBar.leftImageNormal)
+        static let leftView = UIImageView(image: Resources.Images.SearchBar.leftImageNormal)
 
         enum TextFild {
             static let font = Resources.Fonts.interRegular(with: 15)

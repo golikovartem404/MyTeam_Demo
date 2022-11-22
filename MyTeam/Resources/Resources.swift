@@ -55,19 +55,19 @@ enum Resources {
 
     enum Fonts {
         static func interMedium(with size: CGFloat) -> UIFont {
-            UIFont(name: "Inter-Medium", size: size) ?? UIFont()
+            UIFont.systemFont(ofSize: size, weight: .medium)
         }
 
         static func interRegular(with size: CGFloat) -> UIFont {
-            UIFont(name: "Inter-Regular", size: size) ?? UIFont()
+            UIFont.systemFont(ofSize: size, weight: .regular)
         }
 
         static func interSemiBold(with size: CGFloat) -> UIFont {
-            UIFont(name: "Inter-SemiBold", size: size) ?? UIFont()
+            UIFont.systemFont(ofSize: size, weight: .semibold)
         }
 
         static func interBold(with size: CGFloat) -> UIFont {
-            UIFont(name: "Inter-Bold", size: size) ?? UIFont()
+            UIFont.systemFont(ofSize: size, weight: .bold)
         }
     }
 
