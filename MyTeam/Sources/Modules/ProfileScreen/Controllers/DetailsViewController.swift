@@ -16,7 +16,7 @@ class DetailsViewController: BaseViewController<ProfileView> {
         navigationItem.title = "SecondViewController"
         mainView.phoneView.phoneButton.addTarget(
             self,
-            action: #selector(phoneButtonClicked(_:)),
+            action: #selector(phoneButtonClicked),
             for: .touchUpInside
         )
     }
@@ -105,7 +105,8 @@ class DetailsViewController: BaseViewController<ProfileView> {
         present(alert, animated: true, completion: nil)
     }
 
-    @objc func phoneButtonClicked(_ sender: UIButton) {
-         alert(title: formatPhone(phone: employee.phone), titleSecond: "")
-     }
+    @objc func phoneButtonClicked() {
+        alert(title: formatPhone(phone: employee.phone), titleSecond: formatPhone(phone: employee.phone))
+        print("work phoneButton")
+    }
 }

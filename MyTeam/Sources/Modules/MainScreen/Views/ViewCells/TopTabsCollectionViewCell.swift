@@ -10,9 +10,12 @@ import SnapKit
 
 class TopTabsCollectionViewCell: UICollectionViewCell {
 
-    private(set) var model: DepartmentModel?
+    //MARK: - Properties
 
+    private(set) var model: DepartmentModel?
     static let identifier = "TopTabsCollectionViewCell"
+
+    //MARK: - Outlets
 
     private lazy var label: UILabel = {
         let label = UILabel()
@@ -21,6 +24,8 @@ class TopTabsCollectionViewCell: UICollectionViewCell {
     }()
 
     private lazy var bottomBorderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 2))
+
+    //MARK: - Lifecycle
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -32,6 +37,8 @@ class TopTabsCollectionViewCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
+    //MARK: - Setups
 
     private func setupView() {
         label.textColor = .black

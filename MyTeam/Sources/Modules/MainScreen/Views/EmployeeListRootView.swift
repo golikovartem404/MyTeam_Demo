@@ -9,7 +9,19 @@ import UIKit
 
  class EmployeeListRootView: BaseView {
 
+     //MARK: - Properties
+
+     let employeeTableView = UITableView()
+     let searchBar = UISearchBar()
+     let errorView = LostInternetConnectionView()
+
      //MARK: - Outlets
+     
+     let notFoundSearchView: NotFoundOnSearchView = {
+         let view = NotFoundOnSearchView()
+         view.isHidden = true
+         return view
+     }()
 
      let globalView: UIView = {
          let view = UIView()
@@ -32,17 +44,6 @@ import UIKit
          view.backgroundColor = UIColor(red: 0.765, green: 0.765, blue: 0.776, alpha: 1)
          return view
      }()
-
-     let employeeTableView = UITableView()
-     let searchBar = UISearchBar()
-
-     let notFoundSearchView: NotFoundOnSearchView = {
-         let view = NotFoundOnSearchView()
-         view.isHidden = true
-         return view
-     }()
-
-     let errorView = LostInternetConnectionView()
 
      //MARK: - Setup View
 

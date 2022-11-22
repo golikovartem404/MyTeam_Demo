@@ -13,6 +13,7 @@ class EmployeeListViewController: BaseViewController<EmployeeListRootView> {
 
     var shouldShowBirthday: Bool = false
     let sortVC = SortViewController()
+
     var employeeModelForSections: [[EmployeeModel]] {
         return [thisYearBirthdayEmployee, nextYearBirthdayEmployee]
     }
@@ -229,7 +230,7 @@ class EmployeeListViewController: BaseViewController<EmployeeListRootView> {
     }
 }
 
-    // MARK: Extension for UITableView
+// MARK: Extension for UITableView
 
 extension EmployeeListViewController: UITableViewDelegate, UITableViewDataSource {
 
@@ -240,7 +241,7 @@ extension EmployeeListViewController: UITableViewDelegate, UITableViewDataSource
             if self.shouldShowBirthday {
                 return section == 0 ? thisYearBirthdayEmployee.count : nextYearBirthdayEmployee.count
             } else {
-                return filteredEmployee.count // теперь всегда данные берем из filtered
+                return filteredEmployee.count
             }
         }
     }
@@ -267,9 +268,7 @@ extension EmployeeListViewController: UITableViewDelegate, UITableViewDataSource
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: EmployeeTableViewCell.identifier
-        ) as? EmployeeTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: EmployeeTableViewCell.identifier) as? EmployeeTableViewCell else {
             return UITableViewCell()
         }
         cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: tableView.bounds.width)
@@ -307,7 +306,7 @@ extension EmployeeListViewController: UITableViewDelegate, UITableViewDataSource
     }
 }
 
-    // MARK: Extension for UICollectionView
+// MARK: Extension for UICollectionView
 
 extension EmployeeListViewController: UICollectionViewDelegate, UICollectionViewDataSource {
 
