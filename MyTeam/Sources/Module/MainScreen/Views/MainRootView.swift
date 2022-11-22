@@ -38,7 +38,7 @@ final class MainRootView: BaseView {
         backgroundColor = .white
 
         searchErrorView.isHidden = true
-        separatorLineUnderTabs.backgroundColor = R.Colors.separator
+        separatorLineUnderTabs.backgroundColor = Resources.Colors.separator
 
         refreshControl.tintColor = .clear
     }

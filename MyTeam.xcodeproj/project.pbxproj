@@ -34,9 +34,8 @@
 		9C0F1DBC292D3D62001A0B64 /* SpinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0F1DBB292D3D62001A0B64 /* SpinnerView.swift */; };
 		9C0F1DBF292D3DCC001A0B64 /* TopTabsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0F1DBE292D3DCC001A0B64 /* TopTabsCollectionView.swift */; };
 		9C0F1DC1292D3E1C001A0B64 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0F1DC0292D3E1C001A0B64 /* SearchBar.swift */; };
+		9C0F1DC3292D3ED9001A0B64 /* UsersTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0F1DC2292D3ED9001A0B64 /* UsersTableView.swift */; };
 		9C2227A2292BFB3200B7EABE /* EmployeeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2227A1292BFB3200B7EABE /* EmployeeTableViewCell.swift */; };
-		9C2227A4292BFECB00B7EABE /* NotFoundSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2227A3292BFECB00B7EABE /* NotFoundSearchView.swift */; };
-		9C2227A6292C005600B7EABE /* LostConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2227A5292C005600B7EABE /* LostConnectionView.swift */; };
 		9C776ACE292CCFF700635095 /* PhoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C776ACD292CCFF700635095 /* PhoneView.swift */; };
 		9C776AD1292CD12100635095 /* BirthdayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C776AD0292CD12100635095 /* BirthdayView.swift */; };
 		9C776AD4292CD2EE00635095 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C776AD3292CD2EE00635095 /* ProfileView.swift */; };
@@ -80,9 +79,8 @@
 		9C0F1DBB292D3D62001A0B64 /* SpinnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerView.swift; sourceTree = "<group>"; };
 		9C0F1DBE292D3DCC001A0B64 /* TopTabsCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTabsCollectionView.swift; sourceTree = "<group>"; };
 		9C0F1DC0292D3E1C001A0B64 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		9C0F1DC2292D3ED9001A0B64 /* UsersTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableView.swift; sourceTree = "<group>"; };
 		9C2227A1292BFB3200B7EABE /* EmployeeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeTableViewCell.swift; sourceTree = "<group>"; };
-		9C2227A3292BFECB00B7EABE /* NotFoundSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotFoundSearchView.swift; sourceTree = "<group>"; };
-		9C2227A5292C005600B7EABE /* LostConnectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LostConnectionView.swift; sourceTree = "<group>"; };
 		9C776ACD292CCFF700635095 /* PhoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneView.swift; sourceTree = "<group>"; };
 		9C776AD0292CD12100635095 /* BirthdayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayView.swift; sourceTree = "<group>"; };
 		9C776AD3292CD2EE00635095 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
@@ -399,12 +397,11 @@
 				9C0F1D95292D2FFA001A0B64 /* Cell */,
 				9C0F1D94292D2FF3001A0B64 /* RefreshControl */,
 				9C0F1D93292D2FEC001A0B64 /* Error */,
-				9C2227A3292BFECB00B7EABE /* NotFoundSearchView.swift */,
-				9C0F1DC0292D3E1C001A0B64 /* SearchBar.swift */,
-				9C2227A5292C005600B7EABE /* LostConnectionView.swift */,
-				9C0F1D76292D2476001A0B64 /* HeaderSectionView.swift */,
 				9C0F1DA9292D3648001A0B64 /* MainRootView.swift */,
+				9C0F1DC2292D3ED9001A0B64 /* UsersTableView.swift */,
+				9C0F1DC0292D3E1C001A0B64 /* SearchBar.swift */,
 				9C0F1DBE292D3DCC001A0B64 /* TopTabsCollectionView.swift */,
+				9C0F1D76292D2476001A0B64 /* HeaderSectionView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -492,7 +489,6 @@
 				9C0F1DAE292D3723001A0B64 /* ProfileViewController.swift in Sources */,
 				9C0F1DBC292D3D62001A0B64 /* SpinnerView.swift in Sources */,
 				9C0F1D83292D2ECA001A0B64 /* Department.swift in Sources */,
-				9C2227A4292BFECB00B7EABE /* NotFoundSearchView.swift in Sources */,
 				9C776AD1292CD12100635095 /* BirthdayView.swift in Sources */,
 				9C0F1D92292D2FA8001A0B64 /* MainModel.swift in Sources */,
 				9CAE3DC7292BC41F00DEC457 /* AppDelegate.swift in Sources */,
@@ -501,11 +497,11 @@
 				9C0F1DA8292D3618001A0B64 /* MainViewController.swift in Sources */,
 				9C0F1DBA292D3D3F001A0B64 /* GrayCircleView.swift in Sources */,
 				9C0F1DB0292D37AF001A0B64 /* PresentNetworkError.swift in Sources */,
-				9C2227A6292C005600B7EABE /* LostConnectionView.swift in Sources */,
 				9C0F1D7E292D2E66001A0B64 /* UserModel.swift in Sources */,
 				9C776ACE292CCFF700635095 /* PhoneView.swift in Sources */,
 				9CAE3DC9292BC41F00DEC457 /* SceneDelegate.swift in Sources */,
 				9CAE3DE3292BCC1B00DEC457 /* APIProvider.swift in Sources */,
+				9C0F1DC3292D3ED9001A0B64 /* UsersTableView.swift in Sources */,
 				9C0F1DA6292D34F4001A0B64 /* Int + Ext.swift in Sources */,
 				9C0F1D8B292D2F3B001A0B64 /* SortModel.swift in Sources */,
 				9C0F1D75292D1F94001A0B64 /* SortViewController.swift in Sources */,

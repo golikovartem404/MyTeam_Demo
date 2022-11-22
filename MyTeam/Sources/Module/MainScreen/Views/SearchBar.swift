@@ -19,26 +19,26 @@ final class SearchBar: UISearchBar {
         static let leftView = UIImageView(image: R.Images.SearchBar.leftImageNormal)
 
         enum TextFild {
-            static let font = R.Fonts.interRegular(with: 15)
+            static let font = Resources.Fonts.interRegular(with: 15)
             static let key = "searchField"
-            static let color = R.Colors.SearchBar.secondary
+            static let color = Resources.Colors.SearchBar.secondary
         }
 
         enum CancelButton {
             static let key = "cancelButtonText"
             static let attributes: [NSAttributedString.Key: Any] = [
-                .font: R.Fonts.interSemiBold(with: 15),
-                .foregroundColor: R.Colors.violet
+                .font: Resources.Fonts.interSemiBold(with: 15),
+                .foregroundColor: Resources.Colors.violet
             ]
         }
 
         enum Placeholder {
             static let attributes: [NSAttributedString.Key: Any] = [
-                .font: R.Fonts.interMedium(with: 15),
-                .foregroundColor: R.Colors.SearchBar.placeholder
+                .font: Resources.Fonts.interMedium(with: 15),
+                .foregroundColor: Resources.Colors.SearchBar.placeholder
             ]
             static let attributedString: NSAttributedString = .init(
-                string: R.Strings.SearchBar.placeholder.localizedString,
+                string: Resources.Strings.SearchBar.placeholder.localizedString,
                 attributes: attributes
             )
         }
@@ -67,13 +67,13 @@ private extension SearchBar {
     func setViewAppearance() {
         showsBookmarkButton = true
 
-        setImage(R.Images.SearchBar.rightImageNormal, for: .bookmark, state: .normal)
-        setImage(R.Images.SearchBar.rightImageSelected, for: .bookmark, state: .selected)
-        setImage(R.Images.SearchBar.clear, for: .clear, state: .normal)
+        setImage(Resources.Images.SearchBar.rightImageNormal, for: .bookmark, state: .normal)
+        setImage(Resources.Images.SearchBar.rightImageSelected, for: .bookmark, state: .selected)
+        setImage(Resources.Images.SearchBar.clear, for: .clear, state: .normal)
 
-        setValue(R.Strings.SearchBar.cancel.localizedString, forKey: Constants.CancelButton.key)
+        setValue(Resources.Strings.SearchBar.cancel.localizedString, forKey: Constants.CancelButton.key)
 
-        setSearchFieldBackgroundImage(UIImage.image(color: R.Colors.SearchBar.secondary), for: .normal)
+        setSearchFieldBackgroundImage(UIImage.image(color: Resources.Colors.SearchBar.secondary), for: .normal)
 
         setPositionAdjustment(Constants.adjustingTextOffset, for: .search)
         setPositionAdjustment(Constants.adjustingRightIconOffset, for: .bookmark)
@@ -85,7 +85,7 @@ private extension SearchBar {
         searchTextField.leftView = Constants.leftView
         searchTextField.font = Constants.TextFild.font
         searchTextField.attributedPlaceholder = Constants.Placeholder.attributedString
-        searchTextField.tintColor = R.Colors.violet
+        searchTextField.tintColor = Resources.Colors.violet
 
         let barButtonAppearance = UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self])
         barButtonAppearance.setTitleTextAttributes(Constants.CancelButton.attributes, for: .normal)
