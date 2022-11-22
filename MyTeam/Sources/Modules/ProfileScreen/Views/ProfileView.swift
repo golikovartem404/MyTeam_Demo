@@ -12,15 +12,10 @@ class ProfileView: BaseView {
     // MARK: - Outlets
 
     private let birthView = BirthView()
-    private let phoneView = PhoneView()
+    let phoneView = PhoneView()
 
     private let upView: UIView = {
-        let view = UIView(frame: CGRect(
-            x: 0,
-            y: 0,
-            width: UIScreen.main.bounds.width,
-            height: UIScreen.main.bounds.height/2.7)
-        )
+        let view = UIView()
         view.backgroundColor = UIColor(red: 247/255, green: 247/255, blue: 248/255, alpha: 1)
         return view
     }()
@@ -82,19 +77,27 @@ class ProfileView: BaseView {
     }
 
     private func setupHierarchy() {
-        stackView.addArrangedSubview(birthView)
-        stackView.addArrangedSubview(phoneView)
-        addSubview(stackView)
         addSubview(upView)
         addSubview(employeeImageView)
         addSubview(nameLabel)
         addSubview(tagLabel)
         addSubview(departmentLabel)
+        stackView.addArrangedSubview(birthView)
+        stackView.addArrangedSubview(phoneView)
+        addSubview(stackView)
     }
 
     private func setupLayout() {
+        upView.snp.makeConstraints { make in
+            make.top.equalTo(self.snp.top)
+            make.centerX.equalTo(self.snp.centerX)
+            make.bottom.equalTo(employeeImageView.snp.bottom).offset(104)
+            make.leading.equalTo(self.snp.leading).offset(0)
+            make.trailing.equalTo(self.snp.trailing).offset(0)
+        }
+
         employeeImageView.snp.makeConstraints { make in
-            make.top.equalTo(upView.snp.top).offset(104)
+            make.top.equalTo(upView.snp.top).offset(72)
             make.centerX.equalTo(upView.snp.centerX)
         }
 

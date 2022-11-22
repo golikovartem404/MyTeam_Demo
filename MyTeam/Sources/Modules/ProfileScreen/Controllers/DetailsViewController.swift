@@ -14,6 +14,11 @@ class DetailsViewController: BaseViewController<ProfileView> {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "SecondViewController"
+        mainView.phoneView.phoneButton.addTarget(
+            self,
+            action: #selector(phoneButtonClicked(_:)),
+            for: .touchUpInside
+        )
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -68,7 +73,7 @@ class DetailsViewController: BaseViewController<ProfileView> {
             let dateCurrent = Date()
             if let years = calendar.dateComponents([.year], from: date, to: dateCurrent).year {
                 var stringOfAge = "\(years)"
-                let arrayOfAge = stringOfAge.compactMap{$0.wholeNumberValue}
+                let arrayOfAge = stringOfAge.compactMap { $0.wholeNumberValue }
                 if arrayOfAge.last != nil {
                     switch arrayOfAge.last! {
                     case 1: stringOfAge = "\(years) year"
@@ -81,4 +86,26 @@ class DetailsViewController: BaseViewController<ProfileView> {
         }
         return "Failed to getting year"
     }
+
+    private func alert(title: String, titleSecond: String) {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let number = UIAlertAction(title: title, style: .default) { _ in
+            if let phoneCallURL = URL(string: "tel://\(titleSecond)") {
+                let application: UIApplication = UIApplication.shared
+                if application.canOpenURL(phoneCallURL) {
+                    application.open(phoneCallURL, options: [:], completionHandler: nil)
+                }
+            }
+        }
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        cancel.setValue(UIColor.black, forKey: "titleTextColor")
+        number.setValue(UIColor.black, forKey: "titleTextColor")
+        alert.addAction(number)
+        alert.addAction(cancel)
+        present(alert, animated: true, completion: nil)
+    }
+
+    @objc func phoneButtonClicked(_ sender: UIButton) {
+         alert(title: formatPhone(phone: employee.phone), titleSecond: "")
+     }
 }

@@ -27,7 +27,6 @@
 		9CAE3DEB292BD0AE00DEC457 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAE3DEA292BD0AE00DEC457 /* BaseView.swift */; };
 		9CAE3DED292BD0EB00DEC457 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAE3DEC292BD0EB00DEC457 /* BaseViewController.swift */; };
 		9CAE3DEF292BD14100DEC457 /* ImageResizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAE3DEE292BD14100DEC457 /* ImageResizer.swift */; };
-		9CAE3DF5292BD2EE00DEC457 /* SearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAE3DF4292BD2EE00DEC457 /* SearchTextField.swift */; };
 		9CAE3DF8292BD3F200DEC457 /* TopTabsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAE3DF7292BD3F200DEC457 /* TopTabsCollectionViewCell.swift */; };
 		9CAE3DFB292BD47900DEC457 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 9CAE3DFA292BD47900DEC457 /* SnapKit */; };
 /* End PBXBuildFile section */
@@ -55,7 +54,6 @@
 		9CAE3DEA292BD0AE00DEC457 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		9CAE3DEC292BD0EB00DEC457 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		9CAE3DEE292BD14100DEC457 /* ImageResizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageResizer.swift; sourceTree = "<group>"; };
-		9CAE3DF4292BD2EE00DEC457 /* SearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTextField.swift; sourceTree = "<group>"; };
 		9CAE3DF7292BD3F200DEC457 /* TopTabsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTabsCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -211,7 +209,6 @@
 		9CAE3DF3292BD2E100DEC457 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				9CAE3DF4292BD2EE00DEC457 /* SearchTextField.swift */,
 				9C2227A3292BFECB00B7EABE /* NotFoundSearchView.swift */,
 				9C2227A5292C005600B7EABE /* LostConnectionView.swift */,
 				9C2227A7292C028200B7EABE /* EmployeeListRootView.swift */,
@@ -309,7 +306,6 @@
 				9CAE3DCB292BC41F00DEC457 /* EmployeesViewController.swift in Sources */,
 				9C2227A4292BFECB00B7EABE /* NotFoundSearchView.swift in Sources */,
 				9C776AD1292CD12100635095 /* BirthdayView.swift in Sources */,
-				9CAE3DF5292BD2EE00DEC457 /* SearchTextField.swift in Sources */,
 				9CAE3DC7292BC41F00DEC457 /* AppDelegate.swift in Sources */,
 				9CAE3DEF292BD14100DEC457 /* ImageResizer.swift in Sources */,
 				9C2227A6292C005600B7EABE /* LostConnectionView.swift in Sources */,

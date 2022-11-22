@@ -55,6 +55,11 @@ class EmployeeListViewController: BaseViewController<EmployeeListRootView> {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupMainViewLogic()
+        mainView.setupSearchBar()
+        mainView.searchBar.delegate = self
+        navigationItem.titleView = mainView.searchBar
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
     }
 
     // MARK: - Setups
@@ -84,21 +89,6 @@ class EmployeeListViewController: BaseViewController<EmployeeListRootView> {
             action: #selector(checkConnection(_:)),
             for: .touchUpInside
         )
-        mainView.searchTextField.addTarget(
-            self,
-            action: #selector(self.textFieldDidChange),
-            for: .editingChanged
-        )
-        mainView.searchTextField.rightImageButton.addTarget(
-            self,
-            action: #selector(rightViewButtonClicked(_:)),
-            for: .touchUpInside
-        )
-        mainView.cancelButton.addTarget(
-            self,
-            action: #selector(cancelClicked(_:)),
-            for: .touchUpInside
-        )
 
         employeeProvider.getData(
             EmployeeList.self,
@@ -109,7 +99,7 @@ class EmployeeListViewController: BaseViewController<EmployeeListRootView> {
                 self.employee = responseData.items
                 self.mainView.setMainView()
                 self.mainView.employeeTableView.reloadData()
-            case .failure(_):
+            case .failure(_:):
                 self.mainView.setErrorView()
             }
         }
@@ -152,6 +142,16 @@ class EmployeeListViewController: BaseViewController<EmployeeListRootView> {
             cell.setCellSelected(shouldBeSelected)
         })
     }
+    
+    func updateSearchResults(_ searchBar: UISearchBar) {
+        searchText = mainView.searchBar.text ?? ""
+        if searchText.isEmpty {
+            mainView.setNotFoundView()
+        } else {
+            mainView.setIsFoundView()
+        }
+        mainView.employeeTableView.reloadData()
+    }
 
     //MARK: - @Objc Actions
 
@@ -184,32 +184,6 @@ class EmployeeListViewController: BaseViewController<EmployeeListRootView> {
             from: "/kode-education/trainee-test/25143926/users",
             self.loadData(result:)
         )
-    }
-
-    @objc private func textFieldDidChange(_ sender: UITextField) {
-        mainView.setSearchEditingMode()
-        searchText = sender.text ?? ""
-        if filteredEmployee.isEmpty {
-            mainView.setNotFoundView()
-        } else {
-            mainView.setIsFoundView()
-        }
-        mainView.employeeTableView.reloadData()
-    }
-
-    @objc private func cancelClicked(_ sender: UIButton) {
-        mainView.searchTextField.text = ""
-        searchText = ""
-        mainView.setMainView()
-        mainView.searchTextField.rightImageButton.isHidden = false
-        mainView.searchTextField.endEditing(true)
-        mainView.notFoundSearchView.isHidden = true
-        mainView.employeeTableView.reloadData()
-        mainView.cancelButton.isHidden = true
-    }
-
-    @objc func rightViewButtonClicked(_ sender: UIButton) {
-        mainView.setDimView(true)
     }
 }
 
@@ -291,3 +265,28 @@ extension EmployeeListViewController: UICollectionViewDelegate, UICollectionView
 
 }
 
+// MARK: - UISearchBarDelegate
+
+ extension EmployeeListViewController: UISearchBarDelegate {
+     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+         self.searchText = mainView.searchBar.text ?? ""
+         if self.searchText.isEmpty {
+             return mainView.setNotFoundView()
+         } else {
+             mainView.setIsFoundView()
+         }
+             mainView.employeeTableView.reloadData()
+     }
+     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+         mainView.searchBar.showsCancelButton = true
+     }
+     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+         mainView.searchBar.showsCancelButton = false
+         mainView.searchBar.showsBookmarkButton = true
+         mainView.searchBar.text = nil
+         mainView.searchBar.endEditing(true)
+         searchText = ""
+         mainView.setIsFoundView()
+         mainView.employeeTableView.reloadData()
+     }
+ }
