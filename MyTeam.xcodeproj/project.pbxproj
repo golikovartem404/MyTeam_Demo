@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9C0F1D73292D1E87001A0B64 /* SortingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0F1D72292D1E87001A0B64 /* SortingView.swift */; };
 		9C0F1D75292D1F94001A0B64 /* SortViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0F1D74292D1F94001A0B64 /* SortViewController.swift */; };
 		9C0F1D77292D2476001A0B64 /* HeaderSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0F1D76292D2476001A0B64 /* HeaderSectionView.swift */; };
 		9C0F1D7E292D2E66001A0B64 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0F1D7D292D2E66001A0B64 /* UserModel.swift */; };
@@ -29,7 +28,6 @@
 		9C0F1DAE292D3723001A0B64 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0F1DAD292D3723001A0B64 /* ProfileViewController.swift */; };
 		9C0F1DB0292D37AF001A0B64 /* PresentNetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0F1DAF292D37AF001A0B64 /* PresentNetworkError.swift */; };
 		9C0F1DB2292D37E2001A0B64 /* NetworkErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0F1DB1292D37E2001A0B64 /* NetworkErrorView.swift */; };
-		9C160D5F292CFF990084E6EC /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C160D5E292CFF990084E6EC /* DetailsViewController.swift */; };
 		9C2227A2292BFB3200B7EABE /* EmployeeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2227A1292BFB3200B7EABE /* EmployeeTableViewCell.swift */; };
 		9C2227A4292BFECB00B7EABE /* NotFoundSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2227A3292BFECB00B7EABE /* NotFoundSearchView.swift */; };
 		9C2227A6292C005600B7EABE /* LostConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2227A5292C005600B7EABE /* LostConnectionView.swift */; };
@@ -51,7 +49,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		9C0F1D72292D1E87001A0B64 /* SortingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortingView.swift; sourceTree = "<group>"; };
 		9C0F1D74292D1F94001A0B64 /* SortViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortViewController.swift; sourceTree = "<group>"; };
 		9C0F1D76292D2476001A0B64 /* HeaderSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderSectionView.swift; sourceTree = "<group>"; };
 		9C0F1D7D292D2E66001A0B64 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
@@ -73,7 +70,6 @@
 		9C0F1DAD292D3723001A0B64 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		9C0F1DAF292D37AF001A0B64 /* PresentNetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentNetworkError.swift; sourceTree = "<group>"; };
 		9C0F1DB1292D37E2001A0B64 /* NetworkErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrorView.swift; sourceTree = "<group>"; };
-		9C160D5E292CFF990084E6EC /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		9C2227A1292BFB3200B7EABE /* EmployeeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeTableViewCell.swift; sourceTree = "<group>"; };
 		9C2227A3292BFECB00B7EABE /* NotFoundSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotFoundSearchView.swift; sourceTree = "<group>"; };
 		9C2227A5292C005600B7EABE /* LostConnectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LostConnectionView.swift; sourceTree = "<group>"; };
@@ -273,7 +269,6 @@
 		9C160D5D292CFF8C0084E6EC /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				9C160D5E292CFF990084E6EC /* DetailsViewController.swift */,
 				9C0F1DAD292D3723001A0B64 /* ProfileViewController.swift */,
 			);
 			path = Controllers;
@@ -396,7 +391,6 @@
 				9C2227A3292BFECB00B7EABE /* NotFoundSearchView.swift */,
 				9C2227A5292C005600B7EABE /* LostConnectionView.swift */,
 				9C2227A7292C028200B7EABE /* EmployeeListRootView.swift */,
-				9C0F1D72292D1E87001A0B64 /* SortingView.swift */,
 				9C0F1D76292D2476001A0B64 /* HeaderSectionView.swift */,
 				9C0F1DA9292D3648001A0B64 /* MainRootView.swift */,
 			);
@@ -483,7 +477,6 @@
 				9C0F1D85292D2EE4001A0B64 /* User.swift in Sources */,
 				9C2227A8292C028200B7EABE /* EmployeeListRootView.swift in Sources */,
 				9C0F1D9A292D307A001A0B64 /* BackBarButtonItem.swift in Sources */,
-				9C0F1D73292D1E87001A0B64 /* SortingView.swift in Sources */,
 				9C0F1DA2292D320B001A0B64 /* Resources.swift in Sources */,
 				9C0F1DAE292D3723001A0B64 /* ProfileViewController.swift in Sources */,
 				9C0F1D83292D2ECA001A0B64 /* Department.swift in Sources */,
@@ -513,7 +506,6 @@
 				9C0F1DAC292D3683001A0B64 /* UIView + Ext.swift in Sources */,
 				9C2227A2292BFB3200B7EABE /* EmployeeTableViewCell.swift in Sources */,
 				9CAE3DEB292BD0AE00DEC457 /* BaseView.swift in Sources */,
-				9C160D5F292CFF990084E6EC /* DetailsViewController.swift in Sources */,
 				9C0F1DA4292D324E001A0B64 /* UIColor + Ext.swift in Sources */,
 				9C0F1DB2292D37E2001A0B64 /* NetworkErrorView.swift in Sources */,
 				9C0F1D77292D2476001A0B64 /* HeaderSectionView.swift in Sources */,

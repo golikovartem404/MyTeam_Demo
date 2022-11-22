@@ -86,7 +86,7 @@ extension MainViewController: SortDelegate {
             self.model.userSortByDate()
         }
 
-        selfView.searchBar.setImage(R.Images.SearchBar.rightImageSelected, for: .bookmark, state: .normal)
+        selfView.searchBar.setImage(Resources.Images.SearchBar.rightImageSelected, for: .bookmark, state: .normal)
         selfView.userTableView.reloadData()
     }
 
@@ -207,7 +207,7 @@ extension MainViewController: UITableViewDataSource {
             return UITableViewCell()
         }
 
-        var user: User!
+        var user: Item!
 
         if model.users.isEmpty {
             cell.setSkeletonView(show: true)
