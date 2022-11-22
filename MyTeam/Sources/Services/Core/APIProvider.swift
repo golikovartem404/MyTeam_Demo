@@ -7,33 +7,44 @@
 
 import Foundation
 
-class APIProvider {
+final class NetworkTask {
+
+    // MARK: - Properties
 
     private let baseUrl: URL
 
-    init(baseUrl: URL = URL(string: "https://stoplight.io/mocks/")!) {
-        self.baseUrl = baseUrl
-    }
+    init(baseUrl: URL = URL(
+        string: "https://stoplight.io/mocks/kode-education/trainee-test/25143926")!) {
+            self.baseUrl = baseUrl
+        }
+}
 
-    @discardableResult func getData<Response: Codable>(
+// MARK: - Public Methods
+
+extension NetworkTask {
+
+    @discardableResult
+    func getData<Response: Codable>(
         _ model: Response.Type = Response.self,
         from endpoint: String,
         _ completion: @escaping (Result<Response, Error>) -> Void
     ) -> URLSessionDataTask {
         let url = baseUrl.appendingPathComponent(endpoint)
-        let dataTask = URLSession.shared.dataTask(with: url) { data, _, error in
+        var request = URLRequest(url: url)
+        request.addValue("dynamic=true", forHTTPHeaderField: "Prefer")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+
+        let dataTask = URLSession.shared.dataTask(with: request) { data, _, error in
             guard let data = data, error == nil else {
-                print("Data getting error")
+                print("Ошибка получения данных")
                 DispatchQueue.main.async {
                     if let error = error {
                         completion(.failure(error))
-                    } else {
-                        print("Unknown error")
                     }
                 }
                 return
             }
-            
+
             do {
                 let decoder = JSONDecoder()
                 let dateFormatter = DateFormatter()
@@ -45,7 +56,7 @@ class APIProvider {
                 }
             } catch {
                 DispatchQueue.main.async {
-                    print("Cannot convert JSON: \(error)")
+                    print("Не получается сконвертировать JSON: \(error)")
                     completion(.failure(error))
                 }
             }
