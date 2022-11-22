@@ -9,6 +9,8 @@ import UIKit
 
 class PhoneView: BaseView {
 
+    // MARK: - Outlets
+
     private lazy var phoneView: UIView = {
         let view = UIView(frame: CGRect(
             x: 0,
@@ -32,6 +34,8 @@ class PhoneView: BaseView {
         return label
     }()
 
+    // MARK: - Setups
+
     override func setup() {
         setupHierarchy()
         setupLayout()
@@ -54,6 +58,8 @@ class PhoneView: BaseView {
             make.leading.equalTo(phoneImageView.snp.trailing).offset(14)
         }
     }
+
+    // MARK: - Methods
 
     func setData(phoneNumber: String) {
         self.phoneLabel.text = phoneNumber
