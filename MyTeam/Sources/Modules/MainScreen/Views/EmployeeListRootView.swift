@@ -69,7 +69,7 @@ import UIKit
          }
 
          topTabsCollectionView.snp.makeConstraints { make in
-             make.top.equalTo(self.snp.top).offset(70)
+             make.top.equalTo(self.snp.top).offset(96)
              make.leading.equalTo(self.snp.leading)
              make.trailing.equalTo(self.snp.trailing)
              make.height.equalTo(36)
@@ -108,7 +108,7 @@ import UIKit
             green: 247.0/255.0,
             blue: 248.0/255.0,
             alpha: 1)
-         searchBar.tintColor = UIColor(red: 0.396, green: 0.204, blue: 1, alpha: 1)
+         searchBar.tintColor =  #colorLiteral(red: 0.4257887602, green: 0.1908605397, blue: 1, alpha: 1)
          searchBar.setImage(
             UIImage(named: "list-ui-alt"),
             for: .bookmark,
@@ -116,6 +116,7 @@ import UIKit
          )
          searchBar.backgroundColor = .white
          searchBar.showsBookmarkButton = true
+         searchBar.sizeToFit()
          searchBar.placeholder = "Please enter name, tag or email..."
          searchBar.setValue("Cancel", forKey: "cancelButtonText")
      }

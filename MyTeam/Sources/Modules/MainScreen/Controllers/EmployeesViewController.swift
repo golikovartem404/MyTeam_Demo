@@ -58,7 +58,8 @@ class EmployeeListViewController: BaseViewController<EmployeeListRootView> {
         mainView.setupSearchBar()
         mainView.searchBar.delegate = self
         navigationItem.titleView = mainView.searchBar
-        navigationItem.hidesSearchBarWhenScrolling = false
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
     }
 
     // MARK: - Setups
@@ -284,8 +285,8 @@ extension EmployeeListViewController: UICollectionViewDelegate, UICollectionView
          mainView.searchBar.showsBookmarkButton = true
          mainView.searchBar.text = nil
          mainView.searchBar.endEditing(true)
-         mainView.employeeTableView.isHidden = false
          searchText = ""
+         mainView.setIsFoundView()
          mainView.employeeTableView.reloadData()
      }
  }
