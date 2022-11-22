@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+struct UserModel: Codable {
+    let items: [User]
+}
