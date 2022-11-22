@@ -71,6 +71,7 @@ class EmployeeListViewController: BaseViewController<EmployeeListRootView> {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupMainViewLogic()
+        setupTableView()
         mainView.setupSearchBar()
         mainView.searchBar.delegate = self
         navigationItem.titleView = mainView.searchBar
@@ -81,16 +82,6 @@ class EmployeeListViewController: BaseViewController<EmployeeListRootView> {
     // MARK: - Setups
 
     private func setupMainViewLogic() {
-
-        mainView.employeeTableView.refreshControl = refreshControl
-        mainView.employeeTableView.separatorColor = .clear
-        mainView.employeeTableView.rowHeight = 90
-        mainView.employeeTableView.delegate = self
-        mainView.employeeTableView.dataSource = self
-        mainView.employeeTableView.register(
-            EmployeeTableViewCell.self,
-            forCellReuseIdentifier: EmployeeTableViewCell.identifier
-        )
 
         mainView.topTabsCollectionView.delegate = self
         mainView.topTabsCollectionView.dataSource = self
@@ -121,6 +112,17 @@ class EmployeeListViewController: BaseViewController<EmployeeListRootView> {
         }
 
         navigationItem.title = "MainNavViewController"
+    }
+
+
+    func setupTableView() {
+        mainView.employeeTableView.refreshControl = refreshControl
+        mainView.employeeTableView.separatorColor = .clear
+        mainView.employeeTableView.delegate = self
+        mainView.employeeTableView.dataSource = self
+        mainView.employeeTableView.register(EmployeeTableViewCell.self,
+                                            forCellReuseIdentifier: EmployeeTableViewCell.identifier)
+        mainView.employeeTableView.rowHeight = 90
     }
 
     private func loadData(result: Result<EmployeeList, Error>) {
