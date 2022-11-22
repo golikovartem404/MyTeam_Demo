@@ -34,6 +34,7 @@ import UIKit
      }()
 
      let employeeTableView = UITableView()
+     let searchBar = UISearchBar()
 
      let notFoundSearchView: NotFoundOnSearchView = {
          let view = NotFoundOnSearchView()
@@ -68,7 +69,7 @@ import UIKit
          }
 
          topTabsCollectionView.snp.makeConstraints { make in
-             make.top.equalTo(self.snp.top).offset(6)
+             make.top.equalTo(self.snp.top).offset(70)
              make.leading.equalTo(self.snp.leading)
              make.trailing.equalTo(self.snp.trailing)
              make.height.equalTo(36)
@@ -100,6 +101,25 @@ import UIKit
          }
      }
 
+     func setupSearchBar() {
+         let textFieldInsideSearchBar = searchBar.value(forKey: "searchField") as? UITextField
+         textFieldInsideSearchBar?.backgroundColor = UIColor(
+            red: 247.0/255.0,
+            green: 247.0/255.0,
+            blue: 248.0/255.0,
+            alpha: 1)
+         searchBar.tintColor = UIColor(red: 0.396, green: 0.204, blue: 1, alpha: 1)
+         searchBar.setImage(
+            UIImage(named: "list-ui-alt"),
+            for: .bookmark,
+            state: .normal
+         )
+         searchBar.backgroundColor = .white
+         searchBar.showsBookmarkButton = true
+         searchBar.placeholder = "Please enter name, tag or email..."
+         searchBar.setValue("Cancel", forKey: "cancelButtonText")
+     }
+
      func setDimView(_ shouldSet: Bool) {
          shouldSet ? (globalView.isHidden = false) : (globalView.isHidden = true)
      }
@@ -110,16 +130,14 @@ import UIKit
      }
 
      func setIsFoundView() {
-         employeeTableView.isHidden = false
          notFoundSearchView.isHidden = true
+         employeeTableView.isHidden = false
      }
 
      private func setViewDependingOnConnection() {
-
          NetworkMonitor.shared.startMonitoring()
          print("T/f \(NetworkMonitor.shared.isConnected)")
          print("Internet Connection Checking")
-
          if NetworkMonitor.shared.isConnected {
              print("Internet Connection is OK")
              errorView.isHidden = true
@@ -138,6 +156,7 @@ import UIKit
          employeeTableView.isHidden = true
          topTabsCollectionView.isHidden = true
          errorView.isHidden = false
+         searchBar.isHidden = true
      }
 
      func setMainView() {
@@ -145,4 +164,9 @@ import UIKit
          employeeTableView.isHidden = false
          topTabsCollectionView.isHidden = false
      }
+
+     func setSearchEditingMode() {
+          searchBar.isHidden = false
+      }
+
  }

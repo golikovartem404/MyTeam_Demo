@@ -55,6 +55,10 @@ class EmployeeListViewController: BaseViewController<EmployeeListRootView> {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupMainViewLogic()
+        mainView.setupSearchBar()
+        mainView.searchBar.delegate = self
+        navigationItem.titleView = mainView.searchBar
+        navigationItem.hidesSearchBarWhenScrolling = false
     }
 
     // MARK: - Setups
@@ -94,7 +98,7 @@ class EmployeeListViewController: BaseViewController<EmployeeListRootView> {
                 self.employee = responseData.items
                 self.mainView.setMainView()
                 self.mainView.employeeTableView.reloadData()
-            case .failure(_):
+            case .failure(_:):
                 self.mainView.setErrorView()
             }
         }
@@ -136,6 +140,16 @@ class EmployeeListViewController: BaseViewController<EmployeeListRootView> {
             let shouldBeSelected = cell.model == self.selectedDepartment
             cell.setCellSelected(shouldBeSelected)
         })
+    }
+    
+    func updateSearchResults(_ searchBar: UISearchBar) {
+        searchText = mainView.searchBar.text ?? ""
+        if searchText.isEmpty {
+            mainView.setNotFoundView()
+        } else {
+            mainView.setIsFoundView()
+        }
+        mainView.employeeTableView.reloadData()
     }
 
     //MARK: - @Objc Actions
@@ -250,3 +264,28 @@ extension EmployeeListViewController: UICollectionViewDelegate, UICollectionView
 
 }
 
+// MARK: - UISearchBarDelegate
+
+ extension EmployeeListViewController: UISearchBarDelegate {
+     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+         self.searchText = mainView.searchBar.text ?? ""
+         if self.searchText.isEmpty {
+             return mainView.setNotFoundView()
+         } else {
+             mainView.setIsFoundView()
+         }
+             mainView.employeeTableView.reloadData()
+     }
+     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+         mainView.searchBar.showsCancelButton = true
+     }
+     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+         mainView.searchBar.showsCancelButton = false
+         mainView.searchBar.showsBookmarkButton = true
+         mainView.searchBar.text = nil
+         mainView.searchBar.endEditing(true)
+         mainView.employeeTableView.isHidden = false
+         searchText = ""
+         mainView.employeeTableView.reloadData()
+     }
+ }
