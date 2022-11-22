@@ -187,6 +187,14 @@ class EmployeeListViewController: BaseViewController<EmployeeListRootView> {
         return dayDifference
     }
 
+    private func updateSortButtonSelection() {
+        if shouldShowBirthday {
+            mainView.searchBar.setImage(UIImage(named: "list-ui-alt"), for: .bookmark, state: .normal)
+        } else {
+            mainView.searchBar.setImage(UIImage(named: "list-ui-alt_selected"), for: .bookmark, state: .normal)
+        }
+    }
+
     //MARK: - @Objc Actions
 
     @objc private func didPullToRefresh(_ sender: UIRefreshControl) {
@@ -229,7 +237,31 @@ extension EmployeeListViewController: UITableViewDelegate, UITableViewDataSource
         if employee.isEmpty {
             return 15
         } else {
-            return filteredEmployee.count
+            if self.shouldShowBirthday {
+                return section == 0 ? thisYearBirthdayEmployee.count : nextYearBirthdayEmployee.count
+            } else {
+                return filteredEmployee.count // теперь всегда данные берем из filtered
+            }
+        }
+    }
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return self.shouldShowBirthday ?  2 : 1
+    }
+
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if section == 0 {
+            return nil
+        } else {
+            return HeaderSectionView()
+        }
+    }
+
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == 0 {
+            return 0
+        } else {
+            return 68
         }
     }
 
@@ -240,6 +272,7 @@ extension EmployeeListViewController: UITableViewDelegate, UITableViewDataSource
         ) as? EmployeeTableViewCell else {
             return UITableViewCell()
         }
+        cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: tableView.bounds.width)
         if !employee.isEmpty {
             if shouldShowBirthday {
                 let sortedEmployee = employeeModelForSections[indexPath.section][indexPath.row]
@@ -342,10 +375,13 @@ extension EmployeeListViewController: UISearchBarDelegate {
 // MARK: - SortViewDelegate
 
 extension EmployeeListViewController: SortViewDelegate {
+
     func sortByAlphabet() {
         employee.sort(by: { $0.firstName < $1.firstName })
+        updateSortButtonSelection()
         mainView.employeeTableView.reloadData()
     }
+
     func sortByBirthday() {
         employee.sort { date1, date2 in
             guard let date1 = date1.birthdayDate else { return false }
@@ -360,8 +396,10 @@ extension EmployeeListViewController: SortViewDelegate {
             }
             return dayDifference1 < dayDifference2
         }
+        updateSortButtonSelection()
         mainView.employeeTableView.reloadData()
     }
+
     func showBirthday(shouldShow: Bool) {
         self.shouldShowBirthday = shouldShow
         mainView.employeeTableView.reloadData()
