@@ -27,6 +27,8 @@
 		9C0F1DAA292D3648001A0B64 /* MainRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0F1DA9292D3648001A0B64 /* MainRootView.swift */; };
 		9C0F1DAC292D3683001A0B64 /* UIView + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0F1DAB292D3683001A0B64 /* UIView + Ext.swift */; };
 		9C0F1DAE292D3723001A0B64 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0F1DAD292D3723001A0B64 /* ProfileViewController.swift */; };
+		9C0F1DB0292D37AF001A0B64 /* PresentNetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0F1DAF292D37AF001A0B64 /* PresentNetworkError.swift */; };
+		9C0F1DB2292D37E2001A0B64 /* NetworkErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0F1DB1292D37E2001A0B64 /* NetworkErrorView.swift */; };
 		9C160D5F292CFF990084E6EC /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C160D5E292CFF990084E6EC /* DetailsViewController.swift */; };
 		9C2227A2292BFB3200B7EABE /* EmployeeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2227A1292BFB3200B7EABE /* EmployeeTableViewCell.swift */; };
 		9C2227A4292BFECB00B7EABE /* NotFoundSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2227A3292BFECB00B7EABE /* NotFoundSearchView.swift */; };
@@ -69,6 +71,8 @@
 		9C0F1DA9292D3648001A0B64 /* MainRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRootView.swift; sourceTree = "<group>"; };
 		9C0F1DAB292D3683001A0B64 /* UIView + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Ext.swift"; sourceTree = "<group>"; };
 		9C0F1DAD292D3723001A0B64 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		9C0F1DAF292D37AF001A0B64 /* PresentNetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentNetworkError.swift; sourceTree = "<group>"; };
+		9C0F1DB1292D37E2001A0B64 /* NetworkErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrorView.swift; sourceTree = "<group>"; };
 		9C160D5E292CFF990084E6EC /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		9C2227A1292BFB3200B7EABE /* EmployeeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeTableViewCell.swift; sourceTree = "<group>"; };
 		9C2227A3292BFECB00B7EABE /* NotFoundSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotFoundSearchView.swift; sourceTree = "<group>"; };
@@ -186,6 +190,7 @@
 		9C0F1D93292D2FEC001A0B64 /* Error */ = {
 			isa = PBXGroup;
 			children = (
+				9C0F1DB1292D37E2001A0B64 /* NetworkErrorView.swift */,
 			);
 			path = Error;
 			sourceTree = "<group>";
@@ -377,6 +382,7 @@
 			children = (
 				9CAE3DCA292BC41F00DEC457 /* EmployeesViewController.swift */,
 				9C0F1DA7292D3618001A0B64 /* MainViewController.swift */,
+				9C0F1DAF292D37AF001A0B64 /* PresentNetworkError.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -487,6 +493,7 @@
 				9C0F1D92292D2FA8001A0B64 /* MainModel.swift in Sources */,
 				9CAE3DC7292BC41F00DEC457 /* AppDelegate.swift in Sources */,
 				9C0F1DA8292D3618001A0B64 /* MainViewController.swift in Sources */,
+				9C0F1DB0292D37AF001A0B64 /* PresentNetworkError.swift in Sources */,
 				9C2227A6292C005600B7EABE /* LostConnectionView.swift in Sources */,
 				9C0F1D7E292D2E66001A0B64 /* UserModel.swift in Sources */,
 				9C776ACE292CCFF700635095 /* PhoneView.swift in Sources */,
@@ -508,6 +515,7 @@
 				9CAE3DEB292BD0AE00DEC457 /* BaseView.swift in Sources */,
 				9C160D5F292CFF990084E6EC /* DetailsViewController.swift in Sources */,
 				9C0F1DA4292D324E001A0B64 /* UIColor + Ext.swift in Sources */,
+				9C0F1DB2292D37E2001A0B64 /* NetworkErrorView.swift in Sources */,
 				9C0F1D77292D2476001A0B64 /* HeaderSectionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
