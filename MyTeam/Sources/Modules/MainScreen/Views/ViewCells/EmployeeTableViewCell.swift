@@ -11,7 +11,6 @@ class EmployeeTableViewCell: UITableViewCell {
 
     // MARK: - Properties
 
-    var shouldShowBirthday = false
     static let identifier = "EmployeeTableViewCell"
 
     // MARK: - Outlets
@@ -47,15 +46,6 @@ class EmployeeTableViewCell: UITableViewCell {
         return label
     }()
 
-    lazy var birthdayLabel: UILabel = {
-        let label = UILabel()
-        label.numberOfLines = 0
-        label.textColor = UIColor(red: 0.333, green: 0.333, blue: 0.361, alpha: 1)
-        label.font = UIFont(name: "Inter-Regular", size: 15)
-        label.isHidden = true
-        return label
-    }()
-
     // MARK: - Loading views
 
     private lazy var nameLoadingView: UIView = {
@@ -86,6 +76,7 @@ class EmployeeTableViewCell: UITableViewCell {
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        self.backgroundColor = .white
         setupHierarchy()
         setupLayout()
         setLoadingViewsConstraints()
@@ -102,14 +93,12 @@ class EmployeeTableViewCell: UITableViewCell {
         addSubview(nameLabel)
         addSubview(tagLabel)
         addSubview(departmentLabel)
-        addSubview(birthdayLabel)
         addSubview(imageLoadingView)
         addSubview(nameLoadingView)
         addSubview(departmentLoadingView)
     }
 
     private func setupLayout() {
-
         employeeImageView.snp.makeConstraints { make in
             make.centerY.equalTo(self.snp.centerY)
             make.leading.equalTo(self.snp.leading).offset(10)
@@ -129,11 +118,6 @@ class EmployeeTableViewCell: UITableViewCell {
         departmentLabel.snp.makeConstraints { make in
             make.leading.equalTo(nameLabel.snp.leading)
             make.centerY.equalTo(nameLabel.snp.centerY).offset(20)
-        }
-
-        birthdayLabel.snp.makeConstraints { make in
-            make.centerY.equalTo(employeeImageView.snp.centerY).offset(-12)
-            make.trailing.equalTo(self.snp.trailing).offset(-19.5)
         }
     }
 
@@ -158,10 +142,6 @@ class EmployeeTableViewCell: UITableViewCell {
             make.width.equalTo(80)
             make.height.equalTo(12)
         }
-    }
-
-    func setBirthdayLabelVisibility(shouldShowBirthday: Bool) {
-        birthdayLabel.isHidden = !shouldShowBirthday
     }
 
     func setLoadingView() {
@@ -193,6 +173,5 @@ class EmployeeTableViewCell: UITableViewCell {
         nameLabel.text = "\(firstName) \(lastName)"
         tagLabel.text = tag
         departmentLabel.text = department?.title
-        birthdayLabel.text = dateBirth
     }
 }

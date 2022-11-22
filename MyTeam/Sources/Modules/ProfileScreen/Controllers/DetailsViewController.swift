@@ -16,7 +16,9 @@ class DetailsViewController: BaseViewController<ProfileView> {
         navigationItem.title = "SecondViewController"
     }
 
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.tintColor = .black
         let formattedPhone = formatPhone(phone: employee.phone)
         let formattedBirthday = formatDate(date: employee.birthdayDate)
         let calculatedYears = calculateYears(date: employee.birthdayDate)
@@ -65,8 +67,16 @@ class DetailsViewController: BaseViewController<ProfileView> {
             let calendar = Calendar.current
             let dateCurrent = Date()
             if let years = calendar.dateComponents([.year], from: date, to: dateCurrent).year {
-                let str = "\(years)"
-                return str
+                var stringOfAge = "\(years)"
+                let arrayOfAge = stringOfAge.compactMap{$0.wholeNumberValue}
+                if arrayOfAge.last != nil {
+                    switch arrayOfAge.last! {
+                    case 1: stringOfAge = "\(years) year"
+                    case 2...4: stringOfAge = "\(years) years"
+                    default: stringOfAge = "\(years) years"
+                    }
+                }
+                return stringOfAge
             }
         }
         return "Failed to getting year"

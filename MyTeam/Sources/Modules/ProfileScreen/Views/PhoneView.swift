@@ -30,6 +30,7 @@ class PhoneView: BaseView {
 
     private lazy var phoneLabel: UILabel = {
         let label = UILabel()
+        label.textColor = .black
         label.font = UIFont(name: "Inter-Medium", size: 16)
         return label
     }()

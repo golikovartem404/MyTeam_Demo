@@ -13,6 +13,7 @@ class EmployeeListViewController: BaseViewController<EmployeeListRootView> {
 
     private let employeeProvider = APIProvider()
     private let tabs = DepartmentModel.allCases
+    private let departmentAll = DepartmentModel.all
     private var searchText: String = ""
     private var selectedDepartment: DepartmentModel?
     private var employee: [EmployeeModel] = []
@@ -25,13 +26,14 @@ class EmployeeListViewController: BaseViewController<EmployeeListRootView> {
             action: #selector(didPullToRefresh(_:)),
             for: .valueChanged
         )
+        refresh.tintColor = .lightGray
         return refresh
     }()
 
     private var filteredEmployee: [EmployeeModel] {
         return employee
             .filter({
-                $0.department == selectedDepartment || selectedDepartment == nil
+                $0.department == selectedDepartment || selectedDepartment == nil || selectedDepartment == departmentAll
             })
             .filter({
                 $0.firstName.starts(with: searchText) || $0.lastName.starts(with: searchText) || searchText.isEmpty
@@ -198,7 +200,12 @@ class EmployeeListViewController: BaseViewController<EmployeeListRootView> {
     @objc private func cancelClicked(_ sender: UIButton) {
         mainView.searchTextField.text = ""
         searchText = ""
+        mainView.setMainView()
+        mainView.searchTextField.rightImageButton.isHidden = false
+        mainView.searchTextField.endEditing(true)
+        mainView.notFoundSearchView.isHidden = true
         mainView.employeeTableView.reloadData()
+        mainView.cancelButton.isHidden = true
     }
 
     @objc func rightViewButtonClicked(_ sender: UIButton) {

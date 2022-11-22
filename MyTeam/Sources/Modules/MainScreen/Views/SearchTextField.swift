@@ -32,7 +32,11 @@ class SearchTextField: UITextField {
         self.layer.backgroundColor = CGColor(red: 247/255, green: 247/255, blue: 248/255, alpha: 1)
         self.layer.cornerRadius = 16
         self.layer.borderWidth = 0
-        self.placeholder = "Please enter name, tag, email.."
+        self.textColor = .black
+        self.attributedPlaceholder = NSAttributedString(
+            string: "Please enter name, tag, email..",
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray]
+        )
     }
 
     required init?(coder: NSCoder) {
