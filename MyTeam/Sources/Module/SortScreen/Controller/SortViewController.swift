@@ -7,47 +7,64 @@
 
 import UIKit
 
-protocol SortViewDelegate: AnyObject {
-    func sortByAlphabet()
-    func sortByBirthday()
+protocol SortDelegate: AnyObject {
+
+    func sort(model: SortModel)
     func showBirthday(shouldShow: Bool)
 }
 
-class SortViewController: BaseViewController<SortView> {
+final class SortViewController: BottomSheetController<SortView> {
 
-    weak var delegate: SortViewDelegate?
+    // MARK: - Constants
+
+    private enum Constants {
+
+        static let buttomSheetCornerRadius: CGFloat = 8
+    }
+
+    // MARK: - Delegate Properties
+
+    weak var delegate: SortDelegate?
+
+    // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupActions()
+        self.preferredSheetCornerRadius = Constants.buttomSheetCornerRadius
+        setTargets()
     }
+}
 
-    private func setupActions() {
-        mainView.alphabetSortButton.addTarget(
-            self,
-            action: #selector(self.alphabetSortButtonClicked(_:)),
-            for: .touchUpInside
-        )
-        mainView.birthdaySortButton.addTarget(
-            self,
-            action: #selector(self.birthdaySortButtonClicked(_:)),
-            for: .touchUpInside
-        )
+// MARK: - Private Methods
+
+private extension SortViewController {
+
+    func setTargets() {
+        selfView.sortButtonArray.forEach { sortButton in
+            sortButton.addTarget(self, action: #selector(sortButtonClicked), for: .touchUpInside)
+        }
     }
+}
 
-    @objc private func alphabetSortButtonClicked(_ sender: UIButton) {
-        mainView.alphabetSortButton.isSelected = true
-        mainView.birthdaySortButton.isSelected = false
+// MARK: - Actions
+
+@objc private extension SortViewController {
+
+    func backButtonClicked(_ sender: UIButton) {
         dismiss(animated: true)
-        delegate?.showBirthday(shouldShow: false)
-        delegate?.sortByAlphabet()
     }
 
-    @objc private func birthdaySortButtonClicked(_ sender: UIButton) {
-        mainView.alphabetSortButton.isSelected = false
-        mainView.birthdaySortButton.isSelected = true
+    func sortButtonClicked(_ sender: SortButton) {
+
+        selfView.sortButtonArray.forEach { sortButton in
+            if sortButton == sender {
+                return sortButton.isSelected = true
+            }
+            sortButton.isSelected = false
+        }
+
+        delegate?.showBirthday(shouldShow: sender.model == .birhDate)
+        delegate?.sort(model: sender.model)
         dismiss(animated: true)
-        delegate?.showBirthday(shouldShow: true)
-        delegate?.sortByBirthday()
     }
 }
