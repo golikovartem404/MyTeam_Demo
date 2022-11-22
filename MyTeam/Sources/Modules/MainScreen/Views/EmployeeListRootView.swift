@@ -184,7 +184,7 @@ import UIKit
              make.trailing.equalTo(cancelButton.snp.leading).offset(-16)
          }
          cancelButton.isHidden = false
-         layoutIfNeeded()
+         searchTextField.rightImageButton.isHidden = true
          let leftView = UIImageView()
          leftView.image = UIImage(named: "vector_editing")
          self.searchTextField.leftView = leftView
