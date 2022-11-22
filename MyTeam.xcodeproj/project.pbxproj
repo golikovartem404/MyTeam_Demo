@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9C0F1D73292D1E87001A0B64 /* SortingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0F1D72292D1E87001A0B64 /* SortingView.swift */; };
+		9C0F1D75292D1F94001A0B64 /* SortViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0F1D74292D1F94001A0B64 /* SortViewController.swift */; };
 		9C160D5F292CFF990084E6EC /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C160D5E292CFF990084E6EC /* DetailsViewController.swift */; };
 		9C2227A2292BFB3200B7EABE /* EmployeeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2227A1292BFB3200B7EABE /* EmployeeTableViewCell.swift */; };
 		9C2227A4292BFECB00B7EABE /* NotFoundSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2227A3292BFECB00B7EABE /* NotFoundSearchView.swift */; };
@@ -34,6 +35,7 @@
 
 /* Begin PBXFileReference section */
 		9C0F1D72292D1E87001A0B64 /* SortingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortingView.swift; sourceTree = "<group>"; };
+		9C0F1D74292D1F94001A0B64 /* SortViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortViewController.swift; sourceTree = "<group>"; };
 		9C160D5E292CFF990084E6EC /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		9C2227A1292BFB3200B7EABE /* EmployeeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeTableViewCell.swift; sourceTree = "<group>"; };
 		9C2227A3292BFECB00B7EABE /* NotFoundSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotFoundSearchView.swift; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				9CAE3DCA292BC41F00DEC457 /* EmployeesViewController.swift */,
+				9C0F1D74292D1F94001A0B64 /* SortViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -316,6 +319,7 @@
 				9C776ACE292CCFF700635095 /* PhoneView.swift in Sources */,
 				9CAE3DC9292BC41F00DEC457 /* SceneDelegate.swift in Sources */,
 				9CAE3DE3292BCC1B00DEC457 /* APIProvider.swift in Sources */,
+				9C0F1D75292D1F94001A0B64 /* SortViewController.swift in Sources */,
 				9CAE3DF8292BD3F200DEC457 /* TopTabsCollectionViewCell.swift in Sources */,
 				9CAE3DDE292BCA0B00DEC457 /* EmployeeModel.swift in Sources */,
 				9CAE3DED292BD0EB00DEC457 /* BaseViewController.swift in Sources */,
