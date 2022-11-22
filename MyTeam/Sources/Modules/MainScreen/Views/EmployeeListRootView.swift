@@ -59,6 +59,7 @@ import UIKit
 
      override func setup() {
          backgroundColor = .white
+         employeeTableView.backgroundColor = .white
          setupHierarchy()
          setupLayout()
          setViewDependingOnConnection()

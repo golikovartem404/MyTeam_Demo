@@ -25,6 +25,7 @@ class EmployeeListViewController: BaseViewController<EmployeeListRootView> {
             action: #selector(didPullToRefresh(_:)),
             for: .valueChanged
         )
+        refresh.tintColor = .lightGray
         return refresh
     }()
 

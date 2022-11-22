@@ -76,6 +76,7 @@ class EmployeeTableViewCell: UITableViewCell {
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        self.backgroundColor = .white
         setupHierarchy()
         setupLayout()
         setLoadingViewsConstraints()
