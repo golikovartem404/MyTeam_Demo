@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C160D5F292CFF990084E6EC /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C160D5E292CFF990084E6EC /* DetailsViewController.swift */; };
 		9C2227A2292BFB3200B7EABE /* EmployeeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2227A1292BFB3200B7EABE /* EmployeeTableViewCell.swift */; };
 		9C2227A4292BFECB00B7EABE /* NotFoundSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2227A3292BFECB00B7EABE /* NotFoundSearchView.swift */; };
 		9C2227A6292C005600B7EABE /* LostConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2227A5292C005600B7EABE /* LostConnectionView.swift */; };
@@ -32,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9C160D5E292CFF990084E6EC /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		9C2227A1292BFB3200B7EABE /* EmployeeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeTableViewCell.swift; sourceTree = "<group>"; };
 		9C2227A3292BFECB00B7EABE /* NotFoundSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotFoundSearchView.swift; sourceTree = "<group>"; };
 		9C2227A5292C005600B7EABE /* LostConnectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LostConnectionView.swift; sourceTree = "<group>"; };
@@ -69,9 +71,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9C160D5D292CFF8C0084E6EC /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9C160D5E292CFF990084E6EC /* DetailsViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		9C776ACC292CCFE700635095 /* ProfileScreen */ = {
 			isa = PBXGroup;
 			children = (
+				9C160D5D292CFF8C0084E6EC /* Controllers */,
 				9C776ACF292CD10300635095 /* Views */,
 			);
 			path = ProfileScreen;
@@ -313,6 +324,7 @@
 				9C776AD4292CD2EE00635095 /* ProfileView.swift in Sources */,
 				9C2227A2292BFB3200B7EABE /* EmployeeTableViewCell.swift in Sources */,
 				9CAE3DEB292BD0AE00DEC457 /* BaseView.swift in Sources */,
+				9C160D5F292CFF990084E6EC /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

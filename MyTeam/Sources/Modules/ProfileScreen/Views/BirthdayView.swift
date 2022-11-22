@@ -76,7 +76,7 @@ class BirthView: BaseView {
 
         birthDataLabel.snp.makeConstraints { make in
             make.centerY.equalTo(starImageView.snp.centerY)
-            make.trailing.equalTo(starImageView.snp.trailing).offset(14)
+            make.leading.equalTo(starImageView.snp.trailing).offset(14)
         }
 
         yearsLabel.snp.makeConstraints { make in
