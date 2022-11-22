@@ -84,21 +84,6 @@ class EmployeeListViewController: BaseViewController<EmployeeListRootView> {
             action: #selector(checkConnection(_:)),
             for: .touchUpInside
         )
-        mainView.searchTextField.addTarget(
-            self,
-            action: #selector(self.textFieldDidChange),
-            for: .editingChanged
-        )
-        mainView.searchTextField.rightImageButton.addTarget(
-            self,
-            action: #selector(rightViewButtonClicked(_:)),
-            for: .touchUpInside
-        )
-        mainView.cancelButton.addTarget(
-            self,
-            action: #selector(cancelClicked(_:)),
-            for: .touchUpInside
-        )
 
         employeeProvider.getData(
             EmployeeList.self,
@@ -184,32 +169,6 @@ class EmployeeListViewController: BaseViewController<EmployeeListRootView> {
             from: "/kode-education/trainee-test/25143926/users",
             self.loadData(result:)
         )
-    }
-
-    @objc private func textFieldDidChange(_ sender: UITextField) {
-        mainView.setSearchEditingMode()
-        searchText = sender.text ?? ""
-        if filteredEmployee.isEmpty {
-            mainView.setNotFoundView()
-        } else {
-            mainView.setIsFoundView()
-        }
-        mainView.employeeTableView.reloadData()
-    }
-
-    @objc private func cancelClicked(_ sender: UIButton) {
-        mainView.searchTextField.text = ""
-        searchText = ""
-        mainView.setMainView()
-        mainView.searchTextField.rightImageButton.isHidden = false
-        mainView.searchTextField.endEditing(true)
-        mainView.notFoundSearchView.isHidden = true
-        mainView.employeeTableView.reloadData()
-        mainView.cancelButton.isHidden = true
-    }
-
-    @objc func rightViewButtonClicked(_ sender: UIButton) {
-        mainView.setDimView(true)
     }
 }
 

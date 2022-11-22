@@ -12,7 +12,7 @@ class ProfileView: BaseView {
     // MARK: - Outlets
 
     private let birthView = BirthView()
-    private let phoneView = PhoneView()
+    let phoneView = PhoneView()
 
     private let upView: UIView = {
         let view = UIView(frame: CGRect(

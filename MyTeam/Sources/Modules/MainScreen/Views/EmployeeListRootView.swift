@@ -18,18 +18,6 @@ import UIKit
          return view
      }()
 
-     let cancelButton: UIButton = {
-         let button = UIButton()
-         button.setTitle("Cancel", for: .normal)
-         button.setTitleColor(UIColor(red: 0.396, green: 0.204, blue: 1, alpha: 1), for: .normal)
-         button.setTitleColor(UIColor.white, for: .highlighted)
-         button.titleLabel?.font = UIFont(name: "Inter-SemiBold", size: 14)
-         button.isHidden = true
-         return button
-     }()
-
-     var searchTextField = SearchTextField(insets: UIEdgeInsets(top: 10, left: 44, bottom: 10, right: 35))
-
      let topTabsCollectionView: UICollectionView = {
          let layout = UICollectionViewFlowLayout()
          layout.scrollDirection = .horizontal
@@ -66,8 +54,6 @@ import UIKit
      }
 
      private func setupHierarchy() {
-         addSubview(searchTextField)
-         addSubview(cancelButton)
          addSubview(employeeTableView)
          addSubview(notFoundSearchView)
          addSubview(topTabsCollectionView)
@@ -81,22 +67,8 @@ import UIKit
              make.top.leading.trailing.bottom.equalTo(self)
          }
 
-         searchTextField.snp.makeConstraints { make in
-             make.top.equalTo(self.safeAreaLayoutGuide.snp.top)
-             make.leading.equalTo(self.snp.leading).offset(16)
-             make.trailing.equalTo(self.snp.trailing).offset(-16)
-             make.width.equalTo(343)
-             make.height.equalTo(40)
-         }
-
-         cancelButton.snp.makeConstraints { make in
-             make.leading.equalTo(searchTextField.snp.trailing).offset(12)
-             make.centerY.equalTo(searchTextField.snp.centerY)
-             make.trailing.equalTo(self.snp.trailing).offset(-28)
-         }
-
          topTabsCollectionView.snp.makeConstraints { make in
-             make.top.equalTo(searchTextField.snp.bottom).offset(6)
+             make.top.equalTo(self.snp.top).offset(6)
              make.leading.equalTo(self.snp.leading)
              make.trailing.equalTo(self.snp.trailing)
              make.height.equalTo(36)
@@ -151,12 +123,10 @@ import UIKit
          if NetworkMonitor.shared.isConnected {
              print("Internet Connection is OK")
              errorView.isHidden = true
-             searchTextField.isHidden = false
              employeeTableView.isHidden = false
              topTabsCollectionView.isHidden = false
          } else {
              print("Not Internet Connection")
-             searchTextField.isHidden = true
              employeeTableView.isHidden = true
              topTabsCollectionView.isHidden = true
              errorView.isHidden = false
@@ -165,7 +135,6 @@ import UIKit
      }
 
      func setErrorView() {
-         searchTextField.isHidden = true
          employeeTableView.isHidden = true
          topTabsCollectionView.isHidden = true
          errorView.isHidden = false
@@ -173,20 +142,7 @@ import UIKit
 
      func setMainView() {
          errorView.isHidden = true
-         searchTextField.isHidden = false
          employeeTableView.isHidden = false
          topTabsCollectionView.isHidden = false
-     }
-
-     func setSearchEditingMode() {
-         searchTextField.snp.makeConstraints { make in
-             make.width.equalTo(265)
-             make.trailing.equalTo(cancelButton.snp.leading).offset(-16)
-         }
-         cancelButton.isHidden = false
-         searchTextField.rightImageButton.isHidden = true
-         let leftView = UIImageView()
-         leftView.image = UIImage(named: "vector_editing")
-         self.searchTextField.leftView = leftView
      }
  }
