@@ -36,6 +36,7 @@ final class NetworkMonitor {
 }
 
 extension NWInterface.InterfaceType: CaseIterable {
+    
     public static var allCases: [NWInterface.InterfaceType] = [
         .wiredEthernet,
         .wifi,
