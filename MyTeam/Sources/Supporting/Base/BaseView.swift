@@ -11,14 +11,17 @@ import UIKit
 
      override init(frame: CGRect) {
          super.init(frame: frame)
-         setup()
+         setViewAppearance()
+         setViewPosition()
      }
 
      required init?(coder: NSCoder) {
          super.init(coder: coder)
      }
-     
-     func setup() {
-         // for ovveride
-     }
+
+     /// Method for customizing a visual
+     func setViewAppearance() { }
+
+     /// Method for adjusting the position of the view on the screen
+     func setViewPosition() { }
  }
