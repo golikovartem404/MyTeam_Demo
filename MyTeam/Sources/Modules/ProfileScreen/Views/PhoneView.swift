@@ -28,11 +28,13 @@ class PhoneView: BaseView {
         return view
     }()
 
-    private lazy var phoneLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .black
-        label.font = UIFont(name: "Inter-Medium", size: 16)
-        return label
+    let phoneButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitleColor(.black, for: .normal)
+        button.setTitleColor(.gray, for: .highlighted)
+        button.isHidden = false
+        button.titleLabel?.font = UIFont(name: "Inter-Medium", size: 16)
+        return button
     }()
 
     // MARK: - Setups
@@ -45,7 +47,7 @@ class PhoneView: BaseView {
     private func setupHierarchy() {
         addSubview(phoneView)
         addSubview(phoneImageView)
-        addSubview(phoneLabel)
+        addSubview(phoneButton)
     }
 
     private func setupLayout() {
@@ -54,7 +56,7 @@ class PhoneView: BaseView {
             make.leading.equalTo(phoneView.safeAreaLayoutGuide.snp.leading).offset(20)
         }
 
-        phoneLabel.snp.makeConstraints { make in
+        phoneButton.snp.makeConstraints { make in
             make.centerY.equalTo(phoneImageView.snp.centerY)
             make.leading.equalTo(phoneImageView.snp.trailing).offset(14)
         }
@@ -63,6 +65,6 @@ class PhoneView: BaseView {
     // MARK: - Methods
 
     func setData(phoneNumber: String) {
-        self.phoneLabel.text = phoneNumber
+        phoneButton.setTitle(phoneNumber, for: .normal)
     }
 }
