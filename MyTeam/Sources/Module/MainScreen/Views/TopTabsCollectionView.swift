@@ -34,6 +34,7 @@ final class TopTabsCollectionView: UICollectionView {
 private extension TopTabsCollectionView {
 
     func setViewAppearance() {
+        self.backgroundColor = Resources.Colors.mainBackground
         showsHorizontalScrollIndicator = false
     }
 }
