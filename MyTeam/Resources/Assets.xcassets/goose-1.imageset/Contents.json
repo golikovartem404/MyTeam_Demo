@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "icons8-up-down-arrow-27.png",
+      "filename" : "goose 1x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "goose 2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "goose 3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
