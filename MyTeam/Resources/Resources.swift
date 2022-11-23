@@ -35,6 +35,7 @@ enum Resources {
     }
 
     enum Colors {
+        static let mainBackground = UIColor.white
         static let violet = UIColor(hex: "#669C8B") ?? .systemGreen
         static let separator = UIColor(hex: "#C3C3C6") ?? .systemGreen
         static let profileBackground = UIColor(hex: "#F7F7F8") ?? .systemGreen
