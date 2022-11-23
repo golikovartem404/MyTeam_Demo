@@ -24,7 +24,8 @@ final class TopTabsCollectionViewCell: UICollectionViewCell {
         enum Content {
             static let height: CGFloat = 36
             static let width: CGFloat = -16
-            static let leading: CGFloat = 16
+            static let leading: CGFloat = 8
+            static let trailing : CGFloat = -8
         }
     }
 
@@ -43,7 +44,6 @@ final class TopTabsCollectionViewCell: UICollectionViewCell {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-
         setBorderAppearance()
         layoutSubviews()
     }
@@ -61,7 +61,7 @@ final class TopTabsCollectionViewCell: UICollectionViewCell {
         NSLayoutConstraint.activate([
             contentView.heightAnchor.constraint(equalToConstant: Constants.Content.height),
             contentView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Constants.Content.leading),
-            contentView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            contentView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: Constants.Content.trailing),
             contentView.widthAnchor.constraint(equalTo: widthAnchor, constant: Constants.Content.width),
 
             label.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
