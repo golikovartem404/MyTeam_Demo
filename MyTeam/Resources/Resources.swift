@@ -75,19 +75,19 @@ enum Resources {
     enum Strings {
 
         enum Department: String {
-            case all = "All"
-            case android = "Android"
-            case ios = "IOS"
-            case design = "Design"
-            case management = "Management"
-            case qa = "QA"
-            case backOffice = "Back Office"
-            case frontend = "Frontend"
-            case hr = "HR"
-            case pr = "PR"
-            case backend = "Backend"
-            case support = "Support"
-            case analytics = "Analytics"
+            case all = "allTab.title"
+            case android = "androidTab.title"
+            case ios = "iosTab.title"
+            case design = "designTab.title"
+            case management = "managementTab.title"
+            case qa = "qaTab.title"
+            case backOffice = "backOfficeTab.title"
+            case frontend = "frontendTab.title"
+            case hr = "hrTab.title"
+            case pr = "prTab.title"
+            case backend = "backendTab.title"
+            case support = "supportTab.title"
+            case analytics = "analyticsTab.title"
 
             var localizedString: String {
                 NSLocalizedString(self.rawValue, comment: "")
@@ -96,7 +96,7 @@ enum Resources {
 
         enum SearchBar: String {
             case placeholder = "placeholderSearchBar.title"
-            case cancel = "Cancel"
+            case cancel = "cancelSearchBar.title"
 
             var localizedString: String {
                 NSLocalizedString(self.rawValue, comment: "")
@@ -104,9 +104,9 @@ enum Resources {
         }
 
         enum Sort: String {
-            case title = "Sorting"
-            case sortByAlphabet = "By alphabet"
-            case sortByBirthday = "By birthday"
+            case title = "sort.title"
+            case sortByAlphabet = "sortByAlphabet.text"
+            case sortByBirthday = "sortByBirthday.text"
 
             var localizedString: String {
                 NSLocalizedString(self.rawValue, comment: "")
