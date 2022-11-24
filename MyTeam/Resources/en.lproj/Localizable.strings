@@ -41,3 +41,17 @@
 "firstCase.text" = "y. o.";
 "secondCase.text" = "y. o.";
 "thirdCase.text" = "y. o.";
+
+//Months
+"january.text" = "Jan";
+"february.text" = "Feb";
+"march.text" = "Mar";
+"april.text" = "Apr";
+"may.text" = "May";
+"june.text" = "Jun";
+"july.text" = "Jul";
+"august.text" = "Aug";
+"september.text" = "Sep";
+"october.text" = "Oct";
+"november.text" = "Nov";
+"december.text" = "Dec";
