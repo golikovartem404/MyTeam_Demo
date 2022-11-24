@@ -47,12 +47,11 @@ extension ProfileModel {
 
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: "ru_RU")
-        formatter.setLocalizedDateFormatFromTemplate("dd MMMM yyyy")
+        formatter.setLocalizedDateFormatFromTemplate("dd.MM.yyyy")
 
         guard let date = date else { return "" }
 
-        var dateFormatter = formatter.string(from: date)
-        dateFormatter.removeLast(.three)
+        let dateFormatter = formatter.string(from: date)
         return dateFormatter
     }
 

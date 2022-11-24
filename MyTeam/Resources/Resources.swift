@@ -150,5 +150,24 @@ enum Resources {
                 NSLocalizedString(self.rawValue, comment: "")
             }
         }
+
+        enum Months: String {
+            case january = "january.text"
+            case february = "february.text"
+            case march = "march.text"
+            case april = "april.text"
+            case may = "may.text"
+            case june = "june.text"
+            case july = "july.text"
+            case august = "august.text"
+            case september = "september.text"
+            case october = "october.text"
+            case november = "november.text"
+            case december = "december.text"
+
+            var localizedString: String {
+                NSLocalizedString(self.rawValue, comment: "")
+            }
+        }
     }
 }

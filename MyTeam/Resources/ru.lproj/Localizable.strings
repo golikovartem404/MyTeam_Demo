@@ -41,3 +41,17 @@
 "firstCase.text" = "год";
 "secondCase.text" = "года";
 "thirdCase.text" = "лет";
+
+//Months
+"january.text" = "янв";
+"february.text" = "фев";
+"march.text" = "мар";
+"april.text" = "апр";
+"may.text" = "мая";
+"june.text" = "июн";
+"july.text" = "июл";
+"august.text" = "авг";
+"september.text" = "сен";
+"october.text" = "окт";
+"november.text" = "ноя";
+"december.text" = "дек";
